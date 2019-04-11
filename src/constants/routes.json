@@ -2,6 +2,6 @@
 		"routes": [
 			{"name": "Library"},
 			{"name": "Gallery"},
-			{"name": "Settings"},
+			{"name": "Settings"}
 		]
 }
