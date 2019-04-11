@@ -36,12 +36,12 @@ class LibraryTab extends React.Component {
 					degrees={180}>
 						/*************** action buttons ***************/
 						// Gallery
-						<ActionButton.Item buttonColor='#9b59b6' title="Gallery" size={36}
+						<ActionButton.Item buttonColor='#ffca95' title="Gallery" size={36}
 							onPress={() => this.props.navigation.push(`${routes[1].name}`)}>
 							<Icon name="library-add" style={buttonStyle.actionButtonIcon} />
 						</ActionButton.Item>
 						// Settings
-						<ActionButton.Item buttonColor='#1abc9c' title="Settings" size={36}
+						<ActionButton.Item buttonColor='#faf498' title="Settings" size={36}
 							onPress={() => this.props.navigation.push(`${routes[2].name}`)}>
 							<Icon name="settings" style={buttonStyle.actionButtonIcon} />
 						</ActionButton.Item>
