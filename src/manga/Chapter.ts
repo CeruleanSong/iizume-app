@@ -9,18 +9,18 @@ import { Page } from "./"
  *
  * @function
  *
- * @prop {String} title Title of the chapter
+ * @prop {string} title Title of the chapter
  * @prop {number} chapter_number Chapter number in the series
- * @prop {String} url Location of the chapter
+ * @prop {string} url Location of the chapter
  * @prop {number} upload_date Date of upload for chapter
- * @prop {String} scanlator Group that scanlated chapter
+ * @prop {string} scanlator Group that scanlated chapter
  */
 class Chapter {
-	private title: String;
+	private title: string;
 	private chaper_number: number;
-	private url: String;
-	private upload_date: String;
-	private scanlator: String;
+	private url: string;
+	private upload_date: string;
+	private scanlator: string;
 	private pages: Page[] = [];
 
 	/**
@@ -30,7 +30,7 @@ class Chapter {
  	 * @param upload_date Date of upload for chapter
  	 * @param scanlator Group that scanlated chapter
 	 */
-	constructor(title: String, chapter_number: number, url: String, upload_date: String, scanlator: String) {
+	constructor(title: string, chapter_number: number, url: string, upload_date: string, scanlator: string) {
 		this.title = title;
 		this.chapter_number = chapter_number;
 		this.url = url;

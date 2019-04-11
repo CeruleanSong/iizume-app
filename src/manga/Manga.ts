@@ -9,29 +9,29 @@ import { Chapter } from "./";
  *
  * @function
  *
- * @prop {String} title Title of the chapter
- * @prop {String} url Location of the manga
- * @prop {String} thumbnail_url Location of the manga thumbnail
- * @prop {String?} artist Drawer for manga
- * @prop {String?} author Writer for manga
+ * @prop {string} title Title of the chapter
+ * @prop {string} url Location of the manga
+ * @prop {string} thumbnail_url Location of the manga thumbnail
+ * @prop {string?} artist Drawer for manga
+ * @prop {string?} author Writer for manga
  * @prop {number} publication_status Satus of publication
  * @prop {number} rating Rating of the manga
- * @prop {String?} description Long description of manga
- * @prop {String[]} tags Array of applicable tags
+ * @prop {string?} description Long description of manga
+ * @prop {string[]} tags Array of applicable tags
  * @prop {Chapter[]} chapters Array of all chapters in series
  */
 class Manga {
-	private title: String;
-	private url: String;
-	private thumbnail_url: String;
-	private artist: String?;
-	private author: String?;
-	private description: String?;
+	private title: string;
+	private url: string;
+	private thumbnail_url: string;
+	private artist: string?;
+	private author: string?;
+	private description: string?;
 	private publication_status: number;
 	private rating: number;
-	private description: String;
+	private description: string;
 
-	private tags: String[] = [];
+	private tags: string[] = [];
 	private chapters: Chapter[] = [];
 
 	/**
@@ -41,7 +41,7 @@ class Manga {
  	 * @param upload_date Date of upload for chapter
  	 * @param scanlator Group that scanlated chapter
 	 */
-	constructor(title: String, url: String, artist: String, author: String, description: String, publication_status: String, rating: number, tags: String[], chapters: Chapter[]) {
+	constructor(title: string, url: string, artist: string, author: string, description: string, publication_status: string, rating: number, tags: string[], chapters: Chapter[]) {
 		this.title = title;
 		this.url = url;
 		this.artist = artist;
