@@ -7,7 +7,6 @@
 	"rules": {
 		"indent": [true, "tabs", 4],
 		"semicolon": [true, "always"],
-
 		"ordered-imports": [
 			true,
 			{
@@ -15,7 +14,6 @@
 				"named-imports-order": "lowercase-first"
 			}
 		],
-
 		"no-default-export": true,
 		"no-magic-numbers": true,
 		"no-console": true,
@@ -28,7 +26,7 @@
 		"align": false,
 		"no-eval": false,
 		"quotemark": false,
-		"no-var-keyword": false,
+		"no-var-keyword": false
 	},
 	"rulesDirectory": []
 }
