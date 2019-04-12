@@ -1,5 +1,13 @@
 /**
- * This is the entry point of the app where react-native runs from 
+ * App.tsx
+ * Entry point of the application that react-native framework interacts with.
+ * Exports the root container that react-native interacts with.
+ * 
+ * Notes: 
+ * - N/A
+ * 
+ * Created by Elias Mawa on 19-04-11
+ * Last edit by Elias Mawa on 19-04-11
  */
 
 import { AppContainer } from './ui/AppContainer';

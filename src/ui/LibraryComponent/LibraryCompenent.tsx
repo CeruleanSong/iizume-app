@@ -1,7 +1,13 @@
-/**
- * This soruce code is for management of the library component
+ /**
+ * SettingsComponent.ts
+ * Handles UI interactions with library manga.
+ * Main page of the app, navigation to other should main components managed here.
  * 
- * The library component should display all saved manga, and Allows users to mange saved manga.
+ * Notes: 
+ * - Linter say this.props.navigation does not exit in action buttons, Unsure why but works as intended
+ * 
+ * Created by Elias Mawa on 19-04-11
+ * Last edit by Elias Mawa on 19-04-11
  */
 
 import React from 'react';
@@ -20,7 +26,7 @@ import { routes } from "../../constants/Component.json";
  * @classdesc Lists saved manga, and main screen for app
  * @constructor
  *
- * @function {React.Component} render Renders saved manga and a action button for navigation
+ * @function render Renders saved manga and a action button for navigation
  *
  * @prop
  */
@@ -34,23 +40,25 @@ class LibraryCompenent extends React.Component {
 						<Text>Library Tab!</Text>
 					</View>
 				}
-				<ActionButton buttonColor="#ffb7c5" size={48}
-					renderIcon={(active) => (active) ?
-						(<Icon name="expand-less" style={buttonStyle.actionButtonIcon}/>) :
-						(<Icon name="expand-less" style={buttonStyle.actionButtonIcon}/>)}
-					degrees={180}>
-						/*************** action buttons ***************/
-						// Gallery
-						<ActionButton.Item buttonColor='#ffca95' title="Gallery" size={36}
-							onPress={() => this.props.navigation.push(`${routes[1].name}`)}>
-							<Icon name="library-add" style={buttonStyle.actionButtonIcon} />
-						</ActionButton.Item>
-						// Settings
-						<ActionButton.Item buttonColor='#faf498' title="Settings" size={36}
-							onPress={() => this.props.navigation.push(`${routes[2].name}`)}>
-							<Icon name="settings" style={buttonStyle.actionButtonIcon} />
-						</ActionButton.Item>
-				</ActionButton>
+				{
+					/*************** navigation action button ***************/
+					<ActionButton buttonColor="#ffb7c5" size={48}
+						renderIcon={(active) => (active) ?
+							(<Icon name="expand-less" style={buttonStyle.actionButtonIcon}/>) :
+							(<Icon name="expand-less" style={buttonStyle.actionButtonIcon}/>)}
+						degrees={180}>
+					
+							<ActionButton.Item buttonColor='#ffca95' title="Gallery" size={36}
+								onPress={() => this.props.navigation.push(`${routes[1].name}`)}>
+								<Icon name="library-add" style={buttonStyle.actionButtonIcon} />
+							</ActionButton.Item>
+
+							<ActionButton.Item buttonColor='#faf498' title="Settings" size={36}
+								onPress={() => this.props.navigation.push(`${routes[2].name}`)}>
+								<Icon name="settings" style={buttonStyle.actionButtonIcon} />
+							</ActionButton.Item>
+					</ActionButton>
+				}
 			</View>
 		);
 	}

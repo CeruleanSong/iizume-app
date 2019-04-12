@@ -1,8 +1,13 @@
 /**
- * This soruce code is for management of the gallery component
+ * SettingsComponent.ts
+ * Handles UI interactions with manga sources.
+ * Should handle Ui interactions for searching & saving manga.
  * 
- * The gallery component should display all availible sources for veiwing manga.
- * Sources should enable users to search for, and if the wish to download and save new manga.
+ * Notes: 
+ * - N/A
+ * 
+ * Created by Elias Mawa on 19-04-11
+ * Last edit by Elias Mawa on 19-04-11
  */
 
 import React from 'react';
@@ -15,7 +20,7 @@ import { Text, View } from 'react-native';
  * @classdesc Screen for adding manga from different sources
  * @constructor
  *
- * @function {React.Component} render Renders a list of manga sources
+ * @function render Renders a list of manga sources
  *
  * @prop
  */

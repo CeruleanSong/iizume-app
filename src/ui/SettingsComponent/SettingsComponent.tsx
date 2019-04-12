@@ -1,5 +1,12 @@
-/**
- * This soruce code is for management of the settings component
+ /**
+ * SettingsComponent.ts
+ * Handles UI interactions in the settings component. 
+ * 
+ * Notes: 
+ * - N/A
+ * 
+ * Created by Elias Mawa on 19-04-11
+ * Last edit by Elias Mawa on 19-04-11
  */
 
 import React from 'react';
@@ -10,9 +17,9 @@ import { Text, View } from 'react-native';
  *
  * @class SettingsComponent
  * @classdesc Shows different settings, and allows user to edit them
- * @constructor
+ * @constructor 
  *
- * @function {React.Component} render Renderes settings, and other app informaiton
+ * @function render Renderes settings, and other app informaiton
  *
  * @prop
  */
