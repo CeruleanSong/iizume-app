@@ -1,20 +1,20 @@
  /**
- * AppContainer.ts
- * Manages the root container of the application.
- * Handles root UI interactions and application navigation.
- * 
- * Notes: 
- * - N/A
- * 
- * Created by Elias Mawa on 19-04-11
- * Last edit by Elias Mawa on 19-04-11
- */
+  * AppContainer.ts
+  * Manages the root container of the application.
+  * Handles root UI interactions and application navigation.
+  *
+  * Notes:
+  * - N/A
+  *
+  * Created by Elias Mawa on 19-04-11
+  * Last edit by Elias Mawa on 19-04-11
+  */
 
 import { createAppContainer, createStackNavigator } from 'react-navigation';
 import { NavigationContainer } from 'react-navigation';
 
-import { LibraryCompenent } from "./LibraryComponent";
 import { GalleryCompenent } from "./GalleryComponent";
+import { LibraryCompenent } from "./LibraryComponent";
 import { SettingsComponent } from "./SettingsComponent";
 
 import { routes } from "../constants/Component.json";
@@ -32,36 +32,36 @@ import { routes } from "../constants/Component.json";
  */
 class AppContainer {
 
-	/*** public ***/
-
-	/**
-	 * Returns an app container object
-	 *
-	 * @returns {React.Component} returns the user that sent the message, or the first person mentioned in the message
-	 */
-	public create() {
-		return createAppContainer(this.navigator);
-	}
-	
 	/*** private ***/
-	
+
 	private navigator: NavigationContainer;
 
 	/*** constructors & deconstructors ****/
 
 	/**
-	* Prepares a root component to be created. Sets a react-navigator type
-	*/
+	 * Prepares a root component to be created. Sets a react-navigator type
+	 */
    public constructor() {
 	   this.navigator = createStackNavigator({
 		   Library: { screen: LibraryCompenent },
 		   Gallery: { screen: GalleryCompenent },
 		   Settings: { screen: SettingsComponent },
 	   }, {
-		   initialRouteName: `${routes[0].name}`,
+		   initialRouteName: `${routes.library.name}`,
 		   headerMode: "none",
 	   });
    }
+
+	/*** public ***/
+
+	/**
+	 * Returns an app container object
+	 *
+	 * @returns {NavigationContainer} returns the user that sent the message, or the first person mentioned in the message
+	 */
+	public create(): NavigationContainer {
+		return createAppContainer(this.navigator);
+	}
 
 }
 

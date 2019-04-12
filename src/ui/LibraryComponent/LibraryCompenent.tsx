@@ -1,17 +1,17 @@
  /**
- * SettingsComponent.ts
- * Handles UI interactions with library manga.
- * Main page of the app, navigation to other should main components managed here.
- * 
- * Notes: 
- * - Linter say this.props.navigation does not exit in action buttons, Unsure why but works as intended
- * 
- * Created by Elias Mawa on 19-04-11
- * Last edit by Elias Mawa on 19-04-11
- */
+  * SettingsComponent.ts
+  * Handles UI interactions with library manga.
+  * Main page of the app, navigation to other should main components managed here.
+  *
+  * Notes:
+  * - Linter say this.props.navigation does not exit in action buttons, Unsure why but works as intended
+  *
+  * Created by Elias Mawa on 19-04-11
+  * Last edit by Elias Mawa on 19-04-11
+  */
 
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, Text, View, Settings } from 'react-native';
 
 import ActionButton from 'react-native-action-button';
 
@@ -47,14 +47,14 @@ class LibraryCompenent extends React.Component {
 							(<Icon name="expand-less" style={buttonStyle.actionButtonIcon}/>) :
 							(<Icon name="expand-less" style={buttonStyle.actionButtonIcon}/>)}
 						degrees={180}>
-					
+
 							<ActionButton.Item buttonColor='#ffca95' title="Gallery" size={36}
-								onPress={() => this.props.navigation.push(`${routes[1].name}`)}>
+								onPress={() => this.props.navigation.push(`${routes.gallery.name}`)}>
 								<Icon name="library-add" style={buttonStyle.actionButtonIcon} />
 							</ActionButton.Item>
 
 							<ActionButton.Item buttonColor='#faf498' title="Settings" size={36}
-								onPress={() => this.props.navigation.push(`${routes[2].name}`)}>
+								onPress={() => this.props.navigation.push(`${routes.settings.name}`)}>
 								<Icon name="settings" style={buttonStyle.actionButtonIcon} />
 							</ActionButton.Item>
 					</ActionButton>

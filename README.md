@@ -1,9 +1,9 @@
 # sakura-react
 This is app currently not in any shape or form that is ready for production
 
-### Testing: 
+## Testing
 	
 	./react-run.sh
 
-### Building: 
+## Building
 	./react-build.sh || TODO
