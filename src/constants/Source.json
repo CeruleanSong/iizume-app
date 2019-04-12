@@ -1,0 +1,18 @@
+{
+	"sfw": [
+		{
+			"name": "mangadex",
+			"root_url": "mangadex.org"
+		}
+	],
+	"nsfw": [
+		{
+			"name": "nhentai",
+			"root_url": "nhentai.net"
+		},
+		{
+			"name": "",
+			"root_url": ""
+		}
+	]
+}
