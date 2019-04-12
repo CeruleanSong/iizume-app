@@ -3,7 +3,7 @@ This is app currently not in any shape or form that is ready for production
 
 ### Testing: 
 	
-	`./react-run.sh`
+	./react-run.sh
 
 ### Building: 
-	`./react-build.sh` || TODO
+	./react-build.sh || TODO
