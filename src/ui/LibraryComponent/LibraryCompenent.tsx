@@ -1,17 +1,22 @@
+/**
+ * This soruce code is for management of the library component
+ * 
+ * The library component should display all saved manga, and Allows users to mange saved manga.
+ */
+
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-import { createAppContainer, createStackNavigator } from 'react-navigation';
 import ActionButton from 'react-native-action-button';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import { routes } from "../../../constants/routes.json";
+import { routes } from "../../constants/Component.json";
 
 /**
  * Screen that shows all of the saved manga (also home screen)
  *
- * @class LibraryTab
+ * @class LibraryCompenent
  * @classdesc Lists saved manga, and main screen for app
  * @constructor
  *
@@ -19,10 +24,10 @@ import { routes } from "../../../constants/routes.json";
  *
  * @prop
  */
-class LibraryTab extends React.Component {
-	render() {
+class LibraryCompenent extends React.Component {
+	public render() {
 		return (
-			<View renderIcon="book" style={{flex:1, backgroundColor: '#f3f3f3'}}>
+			<View style={{flex: 1, backgroundColor: '#f3f3f3'}}>
 				{
 					/*************** Main Contents ***************/
 					<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -30,7 +35,7 @@ class LibraryTab extends React.Component {
 					</View>
 				}
 				<ActionButton buttonColor="#ffb7c5" size={48}
-					renderIcon={active => active ?
+					renderIcon={(active) => (active) ?
 						(<Icon name="expand-less" style={buttonStyle.actionButtonIcon}/>) :
 						(<Icon name="expand-less" style={buttonStyle.actionButtonIcon}/>)}
 					degrees={180}>
@@ -60,14 +65,14 @@ const buttonStyle = StyleSheet.create({
 	},
 });
 
-const buttonChildStyle = StyleSheet.create({
-	actionButtonIcon: {
-		fontSize: 20,
-		height: 16,
-		color: 'white',
-	},
-});
+// const buttonChildStyle = StyleSheet.create({
+// 	actionButtonIcon: {
+// 		fontSize: 20,
+// 		height: 16,
+// 		color: 'white',
+// 	},
+// });
 
 export {
-	LibraryTab
-}
+	LibraryCompenent,
+};

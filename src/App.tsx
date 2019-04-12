@@ -1,5 +1,9 @@
-import React from 'react';
+/**
+ * This is the entry point of the app where react-native runs from 
+ */
 
-import { MainContainer } from './ui/MainContainer';
+import { AppContainer } from './ui/AppContainer';
 
-export default MainContainer;
+const app = new AppContainer();
+
+export default app.create(); // tslint:disable-line
