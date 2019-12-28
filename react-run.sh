@@ -1,2 +1,2 @@
 #!/bin/bash
-react-native run-android
+yarn dev
