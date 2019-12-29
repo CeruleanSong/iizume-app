@@ -8,16 +8,3 @@
  * Created 19-04-11
  * @author Elias Mawa <elias@emawa.io>
  */
-
- /**
-  * Manages getting manga from deffernent sources
-  */
-class SourceManager {
-
-	constructor() {
-	}
-}
-
-export {
-	SourceManager,
-};
