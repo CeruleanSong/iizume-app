@@ -9,6 +9,7 @@
 
 import React from 'react';
 import { Text, View } from 'react-native';
+import Shelf from '../Shared/Shelf';
 
 /**
  * Component for saved manga
@@ -16,7 +17,7 @@ import { Text, View } from 'react-native';
 const Gallery = () => {
 	return (
 		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-			<Text>Gallery Tab!</Text>
+			<Shelf></Shelf>
 		</View>
 	);
 };

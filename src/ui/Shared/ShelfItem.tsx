@@ -8,61 +8,74 @@
  */
 
 import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
+
+interface ItemProps {
+	title?: string;
+	url: string;
+}
 
 /**
  * Component for settings interactions
  */
-const ShelfItem = ({ title, url }: any) => {
+const ShelfItem: React.FC<ItemProps> = (props: ItemProps) => {
 	return (
-		<View style={styles.item}>
-			<Image
-				style={styles.image}
-				source={{uri: url}} />
-			<Text style={{ position: 'absolute', fontSize: 14, padding: 2, width: '90%', backgroundColor: '#f3eef0', color: '#ff1f48', margin: 'auto', bottom: 0 }}> AAAAA </Text>
-		</View>
+		<TouchableOpacity style={styles.item} activeOpacity={0.8} onPress={() => console.debug("Pressed " + props.title)}>
+			<View style={styles.imageWrapper}>
+				<Image
+					style={styles.image}
+					source={{uri: props.url}} />
+			</View>
+			<View style={styles.itemTitle}>
+				<Text style={styles.itemText}> {props.title} </Text>
+			</View>
+		</TouchableOpacity>
 	);
 };
 
 /*************** Styles ***************/
-
-const width = 100;
-const height = 100;
-
 const styles = StyleSheet.create({
-	container: {
-		justifyContent: 'flex-start',
-		width: '100%',
-	},
 	item: {
-		marginLeft: '1%',
-		marginRight: '1%',
-		marginTop: '0%',
-		marginBottom: '4%',
+		marginTop: "2%",
+		marginLeft: "auto",
+		marginRight: "auto",
 
-		maxWidth: '30.66%',
-		minWidth: '30.66%',
+		borderRadius: 5,
 
-		aspectRatio: .65,
-
-		backgroundColor: '#CCC',
+		width: "48%",
+		aspectRatio: .75,
 	},
-	image: {
+	itemTitle: {
 		width: '100%',
-		height: '100%',
-		resizeMode: 'stretch',
-	},
-});
+		height: "15%",
+		backgroundColor: '#e05c74',
 
-const imageStyle = StyleSheet.create({
+		justifyContent: "center",
+		alignItems: "center",
+
+		borderBottomStartRadius: 5,
+		borderBottomEndRadius: 5,
+	},
+	itemText: {
+		fontSize: 16,
+		padding: 2,
+		color: '#ffffff',
+		fontWeight: "bold",
+	},
+	imageWrapper: {
+		width: '100%',
+		height: '85%',
+
+		borderTopStartRadius: 5,
+		borderTopEndRadius: 5,
+
+		overflow: "hidden",
+	},
 	image: {
-		flexGrow: 1,
-		flexBasis: 0,
-		width,
-		height,
+		width: "100%",
+		height: "100%",
+		resizeMode: 'cover',
 	},
 });
 
-export {
-	ShelfItem,
-};
+export default ShelfItem;

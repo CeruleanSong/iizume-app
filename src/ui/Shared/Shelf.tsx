@@ -7,8 +7,10 @@
  * @author Elias Mawa <elias@emawa.io>
  */
 
-import React, { JSXElementConstructor } from 'react';
+import React from 'react';
 import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import ShelfItem from './ShelfItem';
 
 interface ShelfProps {
 	props?: any;
@@ -60,35 +62,30 @@ const DATA = [
 ];
 /******* FAKE DATA *******/
 
-function Item({ title, url }: any) {
-	return (
-	<View style={styles.item}>
-		<Image
-			style={styles.image}
-			source={{uri: url}} />
-		<Text style={{ position: 'absolute', fontSize: 14, padding: 2, width: '90%', backgroundColor: '#f3eef0', color: '#ff1f48', margin: 'auto', bottom: 0 }}> {title} </Text>
-	</View>
-	);
-}
-
 /**
  * Component for settings interactions
  */
-const Shelf: JSXElementConstructor<ShelfProps> = ()  => {
-
+const Shelf: React.FC<ShelfProps> = ()  => {
+	const cols = 2;
 	return (
-	<FlatList
-		data={DATA}
-		horizontal={false}
-		numColumns={cols}
-		contentContainerStyle={styles.container}
-		renderItem={({ item }) => <Item url={item.url} title={item.title} /> }
-		keyExtractor={(item) => item.id} />
+		<View style={styles.container}>
+			<FlatList
+				data={DATA}
+				horizontal={false}
+				numColumns={cols}
+				contentContainerStyle={styles.container}
+				renderItem={({ item }) => <ShelfItem url={item.url} title={item.title} /> }
+				keyExtractor={(item) => item.id}
+				/>
+		</View>
 	);
 };
 
-const cols = 3;
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
+	container: {
+		width: "100%",
+		padding: 8,
+	},
 	shelf: {
 		display: 'flex',
 		flexDirection: 'row',
@@ -99,50 +96,6 @@ const style = StyleSheet.create({
 
 		backgroundColor: 'red',
 	},
-	image: {
-		flexGrow: 1,
-		flexBasis: 0,
-
-		resizeMode: 'stretch',
-
-		marginLeft: '1%',
-		marginRight: '1%',
-		marginTop: '16%',
-
-		aspectRatio: 1,
-		maxWidth: '25%',
-		minWidth: '25%',
-
-		// maxHeight:
-
-	},
 });
 
-const styles = StyleSheet.create({
-	container: {
-		justifyContent: 'flex-start',
-		width: '100%',
-	},
-	item: {
-		marginLeft: '1%',
-		marginRight: '1%',
-		marginTop: '0%',
-		marginBottom: '4%',
-
-		maxWidth: '30.66%',
-		minWidth: '30.66%',
-
-		aspectRatio: .65,
-
-		backgroundColor: '#CCC',
-	},
-	image: {
-		width: '100%',
-		height: '100%',
-		resizeMode: 'stretch',
-	},
-});
-
-export {
-	Shelf,
-};
+export default Shelf;
