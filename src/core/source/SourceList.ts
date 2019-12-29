@@ -63,6 +63,7 @@ const Sources: any = {
 };
 
 export {
+	SourceType,
 	SFWSources,
 	NSFWSources,
 	Sources,
