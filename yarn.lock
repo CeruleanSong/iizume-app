@@ -821,6 +821,18 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
+"@react-native-community/async-storage-backend-legacy@^2.0.0-rc.1":
+  version "2.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@react-native-community/async-storage-backend-legacy/-/async-storage-backend-legacy-2.0.0-rc.1.tgz#7744f7f21adebca8d6e32d9aadbf5b862b0532c5"
+  integrity sha512-uDpx+Z3YCmPvml7fyQXmlUT1c2P29AAu47DgfZcyE9debHLgL6ZbCZf3fEWerv84FCgkm/NW8y0PdGZ+t5NwHw==
+  dependencies:
+    "@react-native-community/async-storage" "^2.0.0-rc.1"
+
+"@react-native-community/async-storage@^2.0.0-rc.1":
+  version "2.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-2.0.0-rc.1.tgz#9509b6d04fd1f5cd77c2993c8b0b640f17386696"
+  integrity sha512-rfQmL/Wp1ZuiLLzw93uYxZtRvuAdVNmNmevusqaw+0IAOtzu5/4xhiNum1aKhDICmwTPDt5b8OmVOKaHY0MrNw==
+
 "@react-native-community/cli@^1.2.1":
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli/-/cli-1.12.0.tgz#f4cbc2204af63a87d5736d2fa6a018c1fd5efd44"
