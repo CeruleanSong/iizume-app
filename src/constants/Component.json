@@ -1,7 +1,0 @@
-{
-	"routes": {
-		"library": {"name": "Library"},
-		"gallery": {"name": "Gallery"},
-		"settings": {"name": "Settings"}
-	}
-}

@@ -15,7 +15,7 @@ import ActionButton from 'react-native-action-button';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import { routes } from "../../constants/Component.json";
+import { Routes } from "../RouteConfig";
 
 /**
  * Component for saved manga
@@ -38,12 +38,12 @@ const Library = (props: any) => {
 					degrees={rotation}>
 
 					<ActionButton.Item buttonColor='#ffca95' title="Gallery" size={smallButtonRadius}
-						onPress={() => props.navigation.push(`${routes.gallery.name}`)}>
+						onPress={() => props.navigation.push(`${Routes.Gallery.name}`)}>
 						<Icon name="library-add" style={buttonStyle.actionButtonIcon} />
 					</ActionButton.Item>
 
 					<ActionButton.Item buttonColor='#faf498' title="Settings" size={smallButtonRadius}
-						onPress={() => props.navigation.push(`${routes.settings.name}`)}>
+						onPress={() => props.navigation.push(`${Routes.Settings.name}`)}>
 						<Icon name="settings" style={buttonStyle.actionButtonIcon} />
 					</ActionButton.Item>
 				</ActionButton>

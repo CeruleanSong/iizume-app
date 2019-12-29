@@ -13,18 +13,14 @@ import { Gallery } from './Gallery/Gallery';
 import { Library } from "./Library/Library";
 import { Settings } from "./Settings/Settings";
 
-import { routes } from "../constants/Component.json";
+import { Routes } from "./RouteConfig";
 
 /**
  * Create a stack navigator
  */
 const AppNavigator = () => {
-	return createStackNavigator({
-		Library: { screen: Library },
-		Gallery: { screen: Gallery },
-		Settings: { screen: Settings },
-	}, {
-		initialRouteName: `${routes.library.name}`,
+	return createStackNavigator(Routes, {
+		initialRouteName: `${Routes.Library.name}`,
 		headerMode: "none",
 	});
 };
