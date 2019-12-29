@@ -17,10 +17,6 @@ interface SourceType {
 	];
 }
 
-interface SourcesList {
-	source: SourceType;
-}
-
 const SFWSources = {
 	mangadex: {
 		name: 'mangadex',
@@ -61,7 +57,7 @@ const NSFWSources: any = {
 	},
 };
 
-const Sources: {} = {
+const Sources: any = {
 	...SFWSources,
 	...NSFWSources,
 };
