@@ -14,14 +14,12 @@
 				"named-imports-order": "lowercase-first"
 			}
 		],
-		"no-default-export": true,
 		"no-magic-numbers": true,
 		"no-console": true,
 		"eofline": false,
 		"interface-name": false,
 		"one-line": false,
 		"object-literal-sort-keys": false,
-		"variable-name": [true, "allow-snake-case"],
 		"max-line-length": [true, 180],
 		"align": false,
 		"no-eval": false,
