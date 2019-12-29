@@ -7,7 +7,7 @@
  * @author Elias Mawa <elias@emawa.io>
  */
 
-import { Chapter } from "./";
+import { Chapter } from ".";
 
 interface Manga {
 	title: string;

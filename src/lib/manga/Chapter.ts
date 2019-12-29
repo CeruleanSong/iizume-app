@@ -9,7 +9,7 @@
  * @author Elias Mawa <elias@emawa.io>
  */
 
-import { Chapter, Page } from "./";
+import { Chapter, Page } from ".";
 
 interface Chapter {
 	num: number;
