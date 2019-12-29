@@ -7,10 +7,21 @@
  * @author Elias Mawa <elias@emawa.io>
  */
 
+interface SourceType {
+	name: string;
+	root: string;
+	nsfw: boolean;
+	operation?: null;
+	aliases?: [
+		string,
+	];
+}
+
 const SFWSources = {
 	mangadex: {
 		name: 'mangadex',
 		root: 'https://mangadex.org',
+		operation: null,
 		nsfw: false,
 	},
 	mangahere: {
@@ -23,9 +34,17 @@ const SFWSources = {
 		root: 'https://mangaseeonline.us',
 		nsfw: false,
 	},
+	mangalife: {
+		name: 'mangalife',
+		root: 'https://mangalife.us/',
+		aliases: [
+			'https://mangabeast.com',
+		],
+		nsfw: false,
+	},
 };
 
-const NSFWSources = {
+const NSFWSources: any = {
 	mangadex: {
 		name: 'mangadex',
 		root: 'https://nhentai.net',
@@ -38,7 +57,7 @@ const NSFWSources = {
 	},
 };
 
-const Sources = {
+const Sources: any = {
 	...SFWSources,
 	...NSFWSources,
 };
