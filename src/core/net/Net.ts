@@ -19,6 +19,4 @@ class NetworkManager {
 	}
 }
 
-export {
-	NetworkManager
-}
+export default NetworkManager;

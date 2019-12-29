@@ -15,7 +15,7 @@ import ActionButton from 'react-native-action-button';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import { Routes } from "../RouteConfig";
+import Routes from "../RouteConfig";
 
 /**
  * Component for saved manga
@@ -74,6 +74,4 @@ const buttonStyle = StyleSheet.create({
 // 	},
 // });
 
-export {
-	Library,
-};
+export default Library;

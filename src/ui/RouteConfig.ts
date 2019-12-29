@@ -1,7 +1,7 @@
 
-import { Gallery } from './Gallery/Gallery';
-import { Library } from "./Library/Library";
-import { Settings } from "./Settings/Settings";
+import Gallery from './Pages/Gallery';
+import Library from "./Pages/Library";
+import Settings from "./Pages/Settings";
 
 const Routes = {
 	Library: {
@@ -18,6 +18,4 @@ const Routes = {
 	},
 };
 
-export {
-	Routes,
-};
+export default Routes;

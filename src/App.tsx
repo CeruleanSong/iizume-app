@@ -7,6 +7,6 @@
  * @author Elias Mawa <elias@emawa.io>
  */
 
-import { AppContainer } from './ui/AppContainer';
+import AppContainer from './ui/AppContainer';
 
 export default AppContainer;

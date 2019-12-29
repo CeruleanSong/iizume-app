@@ -19,6 +19,4 @@ class CacheManager {
 	}
 }
 
-export {
-	CacheManager
-}
+export default CacheManager;

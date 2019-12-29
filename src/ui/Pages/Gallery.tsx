@@ -21,6 +21,4 @@ const Gallery = () => {
 	);
 };
 
-export {
-	Gallery,
-};
+export default Gallery;
