@@ -2,12 +2,10 @@
  * NetworkManager.ts
  * Should handle http,auth, etc.
  * Interactes with html,api, and file downloads.
- *  
  * Notes:
  * - N/A
- * 
- * Created by Elias Mawa on 19-04-11
- * Last edit by Elias Mawa on 19-04-11
+ * Created 19-12-29
+ * @author Elias Mawa <elias@emawa.io>
  */
 
 /**
