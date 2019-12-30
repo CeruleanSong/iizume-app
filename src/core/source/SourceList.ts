@@ -57,10 +57,33 @@ const NSFWSources: any = {
 	},
 };
 
-const Sources: any = {
-	...SFWSources,
-	...NSFWSources,
-};
+// const Sources: any = [...SFWSources];
+// const NSources: any = [...NSFWSources];
+// Sources.concat(NSources);s
+
+const Sources: any = Object.assign({}, SFWSources, NSFWSources);
+// = {
+// 	...SFWSources,
+// 	...NSFWSources,
+// };
+
+// console.log(...Sources);
+// console.log(Sources.mangasee);
+
+// console.log(Sources[]);
+
+// Sources[Symbol.iterator] = function*() {
+// 	let k;
+// 	for (k in this) {
+// 		if (k) {
+// 			// yield [k, this[k]];
+// 			yield [this[k]];
+// 		}
+// 		// else {
+// 		// 	yield ['', this[k]];
+// 		// }
+// 	}
+// };
 
 export {
 	SourceType,
