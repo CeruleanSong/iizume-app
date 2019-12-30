@@ -45,8 +45,8 @@ const SFWSources = {
 };
 
 const NSFWSources: any = {
-	mangadex: {
-		name: 'mangadex',
+	nhentai: {
+		name: 'nhentai',
 		root: 'https://nhentai.net',
 		nsfw: true,
 	},
