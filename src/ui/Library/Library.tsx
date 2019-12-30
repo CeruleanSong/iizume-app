@@ -1,12 +1,12 @@
- /**
-  * Library.ts
-  * - Handles interactions with manga saved in library.
-  * - Handles navigation to other routes.
-  * Notes:
-  * - Linter say this.props.navigation does not exit in action buttons, Unsure why but works as intended
-  * Created 19-04-11
-  * @author Elias Mawa <elias@emawa.io>
-  */
+/**
+ * Library.ts
+ * - Handles interactions with manga saved in library.
+ * - Handles navigation to other routes.
+ * Notes:
+ * - Linter say this.props.navigation does not exit in action buttons, Unsure why but works as intended
+ * Created 19-04-11
+ * @author Elias Mawa <elias@emawa.io>
+ */
 
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
@@ -15,19 +15,28 @@ import ActionButton from 'react-native-action-button';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import { getLatest } from '../../core/source/Source';
+import { Sources } from '../../core/source/SourceList';
+import { Preview } from '../../lib/manga/Preview';
 import { Routes } from "../RouteConfig";
+import { Shelf } from '../Shared/Shelf';
+import { ShelfItem } from '../Shared/ShelfItem';
 
 /**
  * Component for saved manga
  */
 const Library = (props: any) => {
+
 	return (
 		<View style={{flex: 1, backgroundColor: '#f3f3f3'}}>
 			{
 				/*************** Main Component ***************/
-				<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+				// justifyContent: 'center', alignItems: 'center'
+				<View style={{ justifyContent: 'center', alignItems: 'center' }}>
 					<Text>Library Tab!</Text>
+					{/* <Shelf  /> */}
 				</View>
+
 			}
 			{
 				/*************** Navigation ***************/

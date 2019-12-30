@@ -25,11 +25,15 @@ const get = (source: SourceType, uri: string) => {
 const getLatest = async (source: SourceType, page?: number) => {
 
 	switch (source) {
-		case Sources.mangasee.name:
+		case Sources.mangasee:
 			return page ? MangaSee.getLatest(page) : MangaSee.getLatest();
 			break;
 
 		default:
 			return null;
 	}
+};
+
+export {
+	getLatest,
 };

@@ -1,5 +1,5 @@
 /**
- * MangaPreview.ts
+ * ShelfItem.ts
  * - Handles application settings.
  * Notes:
  * - N/A
@@ -9,27 +9,28 @@
 
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
+import { Preview } from '../../lib/manga/Preview';
 
-/**
- * Component for settings interactions
- */
-const ShelfItem = ({ title, url }: any) => {
+const ShelfItem = ({ title, uri, source, id}: Preview) => {
 	return (
-		<View style={styles.item}>
+		<View style={style.item}>
 			<Image
-				style={styles.image}
-				source={{uri: url}} />
-			<Text style={{ position: 'absolute', fontSize: 14, padding: 2, width: '90%', backgroundColor: '#f3eef0', color: '#ff1f48', margin: 'auto', bottom: 0 }}> AAAAA </Text>
+				style={style.image}
+				source={{uri}} />
+			<Text style={{ position: 'absolute', fontSize: 10, borderTopRightRadius: 30, borderBottomRightRadius: 30,
+				padding: 2, width: '90%', backgroundColor: '#f3eef0', color: '#ff1f48', margin: 'auto', bottom: 0 }}>
+				{title}
+			</Text>
 		</View>
 	);
 };
 
-/*************** Styles ***************/
+/*************** style ***************/
 
 const width = 100;
 const height = 100;
 
-const styles = StyleSheet.create({
+const style = StyleSheet.create({
 	container: {
 		justifyContent: 'flex-start',
 		width: '100%',
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
 		maxWidth: '30.66%',
 		minWidth: '30.66%',
 
-		aspectRatio: .65,
+		aspectRatio: .75,
 
 		backgroundColor: '#CCC',
 	},
@@ -51,15 +52,6 @@ const styles = StyleSheet.create({
 		width: '100%',
 		height: '100%',
 		resizeMode: 'stretch',
-	},
-});
-
-const imageStyle = StyleSheet.create({
-	image: {
-		flexGrow: 1,
-		flexBasis: 0,
-		width,
-		height,
 	},
 });
 

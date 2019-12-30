@@ -10,7 +10,7 @@ const Routes = {
 	},
 	Gallery: {
 		name: "Gallery",
-		screen: Gallery,
+		screen: Gallery(),
 	},
 	Settings: {
 		name: "Settings",

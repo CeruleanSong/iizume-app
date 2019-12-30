@@ -2,126 +2,102 @@
  * Shelf.ts
  * - Handles application settings.
  * Notes:
- * - N/A
+ * - Refresh threshold bug's when set to 0?
  * Created 19-04-11
  * @author Elias Mawa <elias@emawa.io>
  */
 
 import React, { JSXElementConstructor } from 'react';
-import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, FlatList, Image, RefreshControl, StyleSheet, Text, View } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+import { Preview } from '../../lib/manga/Preview';
+import { ShelfItem } from './ShelfItem';
 
-interface ShelfProps {
-	props?: any;
-	parentWidth?: number;
+interface ShelfList {
+	state: any;
+	list: Preview[] | null;
+	updateFunc: any;
 }
 
-/******* FAKE DATA *******/
-const DATA = [
-	{
-		id: '0',
-		title: 'Evil and Save',
-		url: 'https://s0.mangadex.org/images/manga/19872.jpg?1519175508',
-	},
-	{
-		id: '1',
-		title: 'Naruto',
-		url: 'https://s0.mangadex.org/images/manga/5.jpg',
-	},
-	{
-		id: '2',
-		title: 'First Item',
-		url: 'https://s0.mangadex.org/images/manga/5.jpg',
-	},
-	{
-		id: '3',
-		title: 'First Item',
-		url: 'https://s0.mangadex.org/images/manga/5.jpg',
-	},
-	{
-		id: '4',
-		title: 'First Item',
-		url: 'https://s0.mangadex.org/images/manga/5.jpg',
-	},
-	{
-		id: '5',
-		title: 'First Item',
-		url: 'https://s0.mangadex.org/images/manga/5.jpg',
-	},
-	{
-		id: '6',
-		title: 'First Item',
-		url: 'https://s0.mangadex.org/images/manga/5.jpg',
-	},
-	{
-		id: '7',
-		title: 'First Item',
-		url: 'https://s0.mangadex.org/images/manga/5.jpg',
-	},
-];
-/******* FAKE DATA *******/
-
-function Item({ title, url }: any) {
-	return (
-	<View style={styles.item}>
-		<Image
-			style={styles.image}
-			source={{uri: url}} />
-		<Text style={{ position: 'absolute', fontSize: 14, padding: 2, width: '90%', backgroundColor: '#f3eef0', color: '#ff1f48', margin: 'auto', bottom: 0 }}> {title} </Text>
-	</View>
-	);
+function wait(timeout: number) {
+	return new Promise((resolve) => {
+		setTimeout(resolve, timeout);
+	});
 }
 
 /**
  * Component for settings interactions
  */
-const Shelf: JSXElementConstructor<ShelfProps> = ()  => {
+const Shelf = ({list, state, updateFunc}: ShelfList)  => {
+	const [refreshing, setRefreshing] = React.useState(true);
+	const [data, dataList] = React.useState(list);
+
+	const renderFooter = () => {
+		// it will show indicator at the bottom of the list when data is loading otherwise it returns null
+		if (!refreshing) { return null; }
+		return (
+			<ActivityIndicator style={{marginBottom: '4%'}} />
+		);
+	};
+
+	//    const handleLoadMore = () => {
+	// 	if (!refreshing) {
+	// 	  this.page = this.page + 1; // increase page by 1
+	// 	  this.fetchUser(this.page); // method for API call
+	// 	}
+	//   };
+
+	// const onRefresh = React.useCallback(() => {
+	//   	setRefreshing(true);
+	// 	updateFunc();
+	// 	setRefreshing(false);
+	// }, [refreshing]);
+
+	const handleLoad = () => {
+		setRefreshing(true);
+		const q = new Promise(async (res: any) => {
+			await updateFunc();
+		}).then((res) => {
+			setRefreshing(false);
+		});
+	};
 
 	return (
-	<FlatList
-		data={DATA}
+		<FlatList
+		data={list}
 		horizontal={false}
 		numColumns={cols}
-		contentContainerStyle={styles.container}
-		renderItem={({ item }) => <Item url={item.url} title={item.title} /> }
-		keyExtractor={(item) => item.id} />
+		removeClippedSubviews={true}
+		contentContainerStyle={style.container}
+		renderItem={({ item }) => <ShelfItem title={item.title} uri={item.uri} source={item.source} id={item.id} /> }
+		keyExtractor={(item) => item.id ? item.id : item.title}
+		ListFooterComponent={renderFooter()}
+		// refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+		onEndReached={handleLoad}
+		onEndReachedThreshold={refreshThreshold}
+		// refreshing={refreshing}
+		// onRefresh={onRefresh}
+		/>
 	);
 };
 
+/*************** style ***************/
+
+const refreshThreshold = .1;
+
 const cols = 3;
+
 const style = StyleSheet.create({
-	shelf: {
-		display: 'flex',
-		flexDirection: 'row',
-		flexWrap: 'wrap',
-		justifyContent: 'flex-start',
-
-		minWidth: '100%',
-
-		backgroundColor: 'red',
-	},
-	image: {
-		flexGrow: 1,
-		flexBasis: 0,
-
-		resizeMode: 'stretch',
-
-		marginLeft: '1%',
-		marginRight: '1%',
-		marginTop: '16%',
-
-		aspectRatio: 1,
-		maxWidth: '25%',
-		minWidth: '25%',
-
-		// maxHeight:
-
-	},
-});
-
-const styles = StyleSheet.create({
 	container: {
 		justifyContent: 'flex-start',
 		width: '100%',
+	},
+	con: {
+		padding: 0,
+		margin: 0,
+		flexDirection: 'row',
+		alignSelf: 'flex-end',
+		flexGrow: 1,
 	},
 	item: {
 		marginLeft: '1%',
@@ -132,7 +108,7 @@ const styles = StyleSheet.create({
 		maxWidth: '30.66%',
 		minWidth: '30.66%',
 
-		aspectRatio: .65,
+		aspectRatio: 2,
 
 		backgroundColor: '#CCC',
 	},
