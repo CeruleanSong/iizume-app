@@ -28,7 +28,7 @@ const StyledButton = (props: StyledButtonProps) => {
 				...props.textStyle,
 			}}>{props.text}</Text>
 		</TouchableOpacity>
-	)
+	);
 };
 
 const style = StyleSheet.create({
