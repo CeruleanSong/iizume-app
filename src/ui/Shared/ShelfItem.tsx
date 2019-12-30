@@ -13,6 +13,7 @@ import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from
 interface ItemProps {
 	title?: string;
 	uri: string;
+	onSelect: () => void;
 }
 
 /**
@@ -20,7 +21,7 @@ interface ItemProps {
  */
 const ShelfItem: React.FC<ItemProps> = (props: ItemProps) => {
 	return (
-		<TouchableOpacity style={styles.item} activeOpacity={0.8} onPress={() => console.debug("Pressed " + props.title)}>
+		<TouchableOpacity style={styles.item} activeOpacity={0.8} onPress={() => props.onSelect()}>
 			<View style={styles.imageWrapper}>
 				<Image
 					style={styles.image}
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
 	},
 	itemTitle: {
 		width: '100%',
-		height: "15%",
+		minHeight: "15%",
 		backgroundColor: '#e05c74',
 
 		justifyContent: "center",
@@ -58,10 +59,11 @@ const styles = StyleSheet.create({
 		borderBottomEndRadius: 5,
 	},
 	itemText: {
-		fontSize: 16,
+		fontSize: 14,
 		padding: 2,
 		color: '#ffffff',
 		fontWeight: "bold",
+		textAlign: "center",
 	},
 	imageWrapper: {
 		width: '100%',

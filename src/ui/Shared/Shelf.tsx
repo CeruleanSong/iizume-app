@@ -14,17 +14,16 @@ import { Preview } from '../../lib/manga/Preview';
 import ShelfItem from './ShelfItem';
 
 interface ShelfProps {
-	list: Preview[] | null;
-	state: any;
-	updateFunc: any;
+	list: Preview[];
+	onReachEnd: () => Promise<void>;
+	onSelect: (selected: Preview) => void;
 }
 
 /**
  * Component for settings interactions
  */
-const Shelf: React.FC<ShelfProps> = ({list, state, updateFunc}: ShelfProps)  => {
+const Shelf: React.FC<ShelfProps> = (props: ShelfProps)  => {
 	const [refreshing, setRefreshing] = React.useState(true);
-	const [data, dataList] = React.useState(list);
 
 	const renderFooter = () => {
 		// it will show indicator at the bottom of the list when data is loading otherwise it returns null
@@ -34,26 +33,23 @@ const Shelf: React.FC<ShelfProps> = ({list, state, updateFunc}: ShelfProps)  => 
 		);
 	};
 
-	const handleLoad = () => {
+	const handleLoad = async () => {
 		setRefreshing(true);
-		const q = new Promise(async (res: any) => {
-			await updateFunc();
-		}).then((res) => {
-			setRefreshing(false);
-		});
+		await props.onReachEnd?.();
+		setRefreshing(false);
 	};
 
 	return (
 		<View style={styles.container}>
 			<FlatList
-			data={list}
+			data={props.list}
 			horizontal={false}
 			numColumns={cols}
 			removeClippedSubviews={true}
 			contentContainerStyle={styles.container}
 			 // source={item.source} id={item.id}
-			renderItem={({ item }) => <ShelfItem title={item.title} uri={item.uri} /> }
-			keyExtractor={(item) => item.id ? item.id : item.title}
+			renderItem={({ item, index }) => <ShelfItem key={index} title={item.title} uri={item.uri} onSelect={() => props.onSelect(item)} /> }
+			keyExtractor={(item, index) => index.toString() /* item.id ?? item.title */}
 			ListFooterComponent={renderFooter()}
 			// refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
 			onEndReached={handleLoad}

@@ -15,6 +15,9 @@ import { getLatest } from '../../core/source/Source';
 import { Sources } from '../../core/source/SourceList';
 import { Preview } from '../../lib/manga/Preview';
 import Shelf from '../Shared/Shelf';
+import StyledHeader from '../Components/StyledHeader';
+import StyledButton from '../Components/StyledButton';
+import Routes from '../RouteConfig';
 
 interface BrowseState {
 	list: Preview[];
@@ -51,10 +54,12 @@ class Browse extends Component<BrowseProps, BrowseState> {
 		};
 
 		return (
-			<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-				<View>
-					<Text>Latest Releases:</Text>
-				</View>
+			<View>
+				<StyledHeader text="Latest Releases">
+					<View style={{width: "50%", height: 40}}>
+						<StyledButton onPress={() => this.props.navigation.navigate(Routes.Library.name)} text="Back to library"></StyledButton>
+					</View>
+				</StyledHeader>
 				<Shelf list={this.state.list} onReachEnd={onScrollHandler} onSelect={(item) => console.warn("Pressed", item.id ?? item.title)}/>
 			</View>
 		);
