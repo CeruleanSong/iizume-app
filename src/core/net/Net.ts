@@ -7,3 +7,14 @@
  * Created 19-12-29
  * @author Elias Mawa <elias@emawa.io>
  */
+
+/**
+ * Manages network interactions
+ */
+class NetworkManager {
+
+	constructor() {
+	}
+}
+
+export default NetworkManager;

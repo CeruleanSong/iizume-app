@@ -13,12 +13,7 @@ import { Text, View } from 'react-native';
 import { getLatest } from '../../core/source/Source';
 import { Sources } from '../../core/source/SourceList';
 import { Preview } from '../../lib/manga/Preview';
-import { Shelf } from '../Shared/Shelf';
-
-const Fetcher = unstable_createResource(() =>
-	getLatest(Sources.mangasee).then((res) => res));
-
-// const getData = () => Fetcher.read();
+import Shelf from '../Shared/Shelf';
 
 const previewList: Preview[] | null = null;
 
@@ -62,17 +57,6 @@ const Gallery = () => { // const Gallery = ({Source}) => {
 		);
 		}
 	};
-
-	return (
-		<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-			<Text>Gallery Tab!</Text>
-			<Suspense fallback={<div>LOADING!</div>}>
-				{/* <Shelf list={getData()} /> */}
-			</Suspense>
-		</View>
-	);
 };
 
-export {
-	Gallery,
-};
+export default Gallery;

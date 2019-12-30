@@ -14,8 +14,7 @@
 				"named-imports-order": "lowercase-first"
 			}
 		],
-		"no-magic-numbers": true,
-		"no-console": true,
+		"no-magic-numbers": false,
 		"eofline": false,
 		"interface-name": false,
 		"one-line": false,
@@ -24,7 +23,8 @@
 		"align": false,
 		"no-eval": false,
 		"quotemark": false,
-		"no-var-keyword": false
+		"no-var-keyword": false,
+		"no-console": false
 	},
 	"rulesDirectory": []
 }

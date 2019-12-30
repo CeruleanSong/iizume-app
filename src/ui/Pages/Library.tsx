@@ -18,9 +18,9 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { getLatest } from '../../core/source/Source';
 import { Sources } from '../../core/source/SourceList';
 import { Preview } from '../../lib/manga/Preview';
-import { Routes } from "../RouteConfig";
-import { Shelf } from '../Shared/Shelf';
-import { ShelfItem } from '../Shared/ShelfItem';
+import Routes from "../RouteConfig";
+import Shelf from '../Shared/Shelf';
+import ShelfItem from '../Shared/ShelfItem';
 
 /**
  * Component for saved manga
@@ -75,14 +75,4 @@ const buttonStyle = StyleSheet.create({
 	},
 });
 
-// const buttonChildStyle = StyleSheet.create({
-// 	actionButtonIcon: {
-// 		fontSize: 20,
-// 		height: 16,
-// 		color: 'white',
-// 	},
-// });
-
-export {
-	Library,
-};
+export default Library;

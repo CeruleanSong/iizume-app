@@ -9,11 +9,7 @@
 
 import { createAppContainer, createStackNavigator } from 'react-navigation';
 
-import { Gallery } from './Gallery/Gallery';
-import { Library } from "./Library/Library";
-import { Settings } from "./Settings/Settings";
-
-import { Routes } from "./RouteConfig";
+import Routes from "./RouteConfig";
 
 /**
  * Create a stack navigator
@@ -30,6 +26,4 @@ const AppNavigator = () => {
  */
 const AppContainer = createAppContainer(AppNavigator());
 
-export {
-	AppContainer,
-};
+export default AppContainer;

@@ -11,24 +11,18 @@ import React, { JSXElementConstructor } from 'react';
 import { ActivityIndicator, FlatList, Image, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Preview } from '../../lib/manga/Preview';
-import { ShelfItem } from './ShelfItem';
+import ShelfItem from './ShelfItem';
 
-interface ShelfList {
-	state: any;
+interface ShelfProps {
 	list: Preview[] | null;
+	state: any;
 	updateFunc: any;
-}
-
-function wait(timeout: number) {
-	return new Promise((resolve) => {
-		setTimeout(resolve, timeout);
-	});
 }
 
 /**
  * Component for settings interactions
  */
-const Shelf = ({list, state, updateFunc}: ShelfList)  => {
+const Shelf: React.FC<ShelfProps> = ({list, state, updateFunc}: ShelfProps)  => {
 	const [refreshing, setRefreshing] = React.useState(true);
 	const [data, dataList] = React.useState(list);
 
@@ -40,19 +34,6 @@ const Shelf = ({list, state, updateFunc}: ShelfList)  => {
 		);
 	};
 
-	//    const handleLoadMore = () => {
-	// 	if (!refreshing) {
-	// 	  this.page = this.page + 1; // increase page by 1
-	// 	  this.fetchUser(this.page); // method for API call
-	// 	}
-	//   };
-
-	// const onRefresh = React.useCallback(() => {
-	//   	setRefreshing(true);
-	// 	updateFunc();
-	// 	setRefreshing(false);
-	// }, [refreshing]);
-
 	const handleLoad = () => {
 		setRefreshing(true);
 		const q = new Promise(async (res: any) => {
@@ -63,21 +44,24 @@ const Shelf = ({list, state, updateFunc}: ShelfList)  => {
 	};
 
 	return (
-		<FlatList
-		data={list}
-		horizontal={false}
-		numColumns={cols}
-		removeClippedSubviews={true}
-		contentContainerStyle={style.container}
-		renderItem={({ item }) => <ShelfItem title={item.title} uri={item.uri} source={item.source} id={item.id} /> }
-		keyExtractor={(item) => item.id ? item.id : item.title}
-		ListFooterComponent={renderFooter()}
-		// refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
-		onEndReached={handleLoad}
-		onEndReachedThreshold={refreshThreshold}
-		// refreshing={refreshing}
-		// onRefresh={onRefresh}
-		/>
+		<View style={styles.container}>
+			<FlatList
+			data={list}
+			horizontal={false}
+			numColumns={cols}
+			removeClippedSubviews={true}
+			contentContainerStyle={styles.container}
+			 // source={item.source} id={item.id}
+			renderItem={({ item }) => <ShelfItem title={item.title} uri={item.uri} /> }
+			keyExtractor={(item) => item.id ? item.id : item.title}
+			ListFooterComponent={renderFooter()}
+			// refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+			onEndReached={handleLoad}
+			onEndReachedThreshold={refreshThreshold}
+			// refreshing={refreshing}
+			// onRefresh={onRefresh}
+			/>
+		</View>
 	);
 };
 
@@ -85,40 +69,23 @@ const Shelf = ({list, state, updateFunc}: ShelfList)  => {
 
 const refreshThreshold = .1;
 
-const cols = 3;
+const cols = 2;
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
 	container: {
-		justifyContent: 'flex-start',
-		width: '100%',
+		width: "100%",
+		padding: 8,
 	},
-	con: {
-		padding: 0,
-		margin: 0,
+	shelf: {
+		display: 'flex',
 		flexDirection: 'row',
-		alignSelf: 'flex-end',
-		flexGrow: 1,
-	},
-	item: {
-		marginLeft: '1%',
-		marginRight: '1%',
-		marginTop: '0%',
-		marginBottom: '4%',
+		flexWrap: 'wrap',
+		justifyContent: 'flex-start',
 
-		maxWidth: '30.66%',
-		minWidth: '30.66%',
+		minWidth: '100%',
 
-		aspectRatio: 2,
-
-		backgroundColor: '#CCC',
-	},
-	image: {
-		width: '100%',
-		height: '100%',
-		resizeMode: 'stretch',
+		backgroundColor: 'red',
 	},
 });
 
-export {
-	Shelf,
-};
+export default Shelf;
