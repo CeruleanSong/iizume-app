@@ -7,7 +7,8 @@
  * @author Elias Mawa <elias@emawa.io>
  */
 
-import { createAppContainer, createStackNavigator } from 'react-navigation';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from "react-navigation-stack";
 
 import Routes from "./RouteConfig";
 
