@@ -49,8 +49,9 @@ class Library extends React.Component<LibraryProps> {
 			<View style={{flex: 1, backgroundColor: '#f3f3f3'}}>
 				{ /*************** Main Component ***************/ }
 				<StyledHeader text="Saved Manga">
-					<View style={{width: "50%", height: 40}}>
-						<StyledButton onPress={() => this.props.navigation.navigate(Routes.Browse.name)} text="Browse new manga"></StyledButton>
+					<View style={{width: "50%"}}>
+						{/* height: 40 */}
+						{/* <StyledButton onPress={() => this.props.navigation.navigate(Routes.Browse.name)} text="Browse new manga"></StyledButton> */}
 					</View>
 				</StyledHeader>
 				{ /*************** Navigation ***************/ }
@@ -60,12 +61,22 @@ class Library extends React.Component<LibraryProps> {
 						(<Icon name="expand-less" style={styles.actionButtonIcon}/>)}
 					degrees={rotation}>
 
-					<ActionButton.Item buttonColor='#ffca95' title="Gallery" size={smallButtonRadius}
-						onPress={() => this.props.navigation.push(Routes.Gallery.name)}>
-						<Icon name="library-add" style={styles.actionButtonIcon} />
+					<ActionButton.Item buttonColor='#e05c74' title="Latest" size={smallButtonRadius}
+						onPress={() => this.props.navigation.push(Routes.Latest.name)}>
+						<Icon name="new-releases" style={styles.actionButtonIcon} />
 					</ActionButton.Item>
 
-					<ActionButton.Item buttonColor='#faf498' title="Settings" size={smallButtonRadius}
+					<ActionButton.Item buttonColor='#e05c74' title="History" size={smallButtonRadius}
+						onPress={() => this.props.navigation.push(Routes.Latest.name)}>
+						<Icon name="history" style={styles.actionButtonIcon} />
+					</ActionButton.Item>
+
+					<ActionButton.Item buttonColor='#e05c74' title='Browse' size={smallButtonRadius}
+						onPress={() => this.props.navigation.push(`${Routes.Browse.name}`)}>
+						<Icon name="search" style={styles.actionButtonIcon} />
+					</ActionButton.Item>
+
+					<ActionButton.Item buttonColor='#e05c74' title="Settings" size={smallButtonRadius}
 						onPress={() => this.props.navigation.push(Routes.Settings.name)}>
 						<Icon name="settings" style={styles.actionButtonIcon} />
 					</ActionButton.Item>
