@@ -1,3 +1,12 @@
+/**
+ * StyledButton.ts
+ * - Generates a buttons with a specified  style
+ * Notes:
+ * - N/A
+ * Created 19-12-30
+ * @author Filip Ekström <filip.ekstrom98@gmail.com>
+ */
+
 import React from "react";
 import { StyleSheet, Text, TextStyle, TouchableOpacity } from "react-native";
 
