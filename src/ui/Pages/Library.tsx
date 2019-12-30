@@ -14,6 +14,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import ActionButton from 'react-native-action-button';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { NavigationStackProp } from 'react-navigation-stack';
 
 import { getLatest } from '../../core/source/Source';
 import { Sources } from '../../core/source/SourceList';
@@ -22,11 +23,14 @@ import Routes from "../RouteConfig";
 import Shelf from '../Shared/Shelf';
 import ShelfItem from '../Shared/ShelfItem';
 
+interface LibraryProps {
+	navigation: NavigationStackProp;
+}
+
 /**
  * Component for saved manga
  */
-const Library = (props: any) => {
-
+const Library: React.FC<LibraryProps> = (props: LibraryProps) => {
 	return (
 		<View style={{flex: 1, backgroundColor: '#f3f3f3'}}>
 			{
