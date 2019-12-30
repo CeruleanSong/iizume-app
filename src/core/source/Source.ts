@@ -10,7 +10,7 @@
  */
 
 import { Sources, SourceType } from "./SourceList";
-import * as MangaSee from "./sources/MangaSee";
+import MangaSee from "./sources/MangaSee";
 
 const get = (source: SourceType, uri: string) => {
 	// switch (uri) {

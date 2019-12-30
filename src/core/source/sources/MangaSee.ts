@@ -67,11 +67,11 @@ const getLatest = async (page: number = 1) => {
 				// console.log(titles[i].childNodes);
 				let title: any = null;
 
-				if (titleTag.hasOwnProperty(1)) {
+				if (titleTag.hasOwnProperty(2)) {
 					title = titleTag[1].rawText.split(' ');
 				}
 				else {
-					title = titles[i].firstChild.rawText.split(' ');
+					title = titles[1].firstChild.rawText.split(' ');
 				}
 
 				let titleString = '';
@@ -84,6 +84,7 @@ const getLatest = async (page: number = 1) => {
 						titleString += ' ';
 					}
 				}
+
 				list.push(createPreview(titleString.toString().trim(), images[i].attributes.src, Sources.mangasee));
 			}
 			else
@@ -109,10 +110,10 @@ const query = async () => {
 	//
 };
 
-export {
+const MangaSee = {
 	get,
-};
-
-export {
+	getHot,
 	getLatest,
 };
+
+export default MangaSee;
