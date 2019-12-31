@@ -28,7 +28,8 @@ const StyledHeader = (props: HeaderProps) => {
 
 const style = StyleSheet.create({
 	header: {
-		minHeight: "5%",
+		// minHeight: "5%",
+		// minHeight: "5%",
 		width: "100%",
 
 		backgroundColor: "#e05c74",
