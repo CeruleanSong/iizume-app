@@ -7,6 +7,7 @@
  * @author Elias Mawa <elias@emawa.io>
  */
 
+import 'react-native-gesture-handler';
 import AppContainer from './ui/AppContainer';
 
 export default AppContainer;
