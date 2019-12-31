@@ -23,13 +23,13 @@
 		"react-native-gesture-handler": "^1.1.0",
 		"react-native-paper": "^3.4.0",
 		"react-native-reanimated": "^1.4.0",
+		"react-native-screens": "^2.0.0-alpha.22",
 		"react-native-vector-icons": "^6.6.0",
 		"react-navigation": "^4.0.10",
 		"react-navigation-animated-switch": "^0.4.1",
 		"react-navigation-material-bottom-tabs": "^2.1.5",
 		"react-navigation-stack": "^1.10.3",
-		"react-navigation-tabs": "^2.6.2",
-		"tslint": "^5.20.1"
+		"react-navigation-tabs": "^2.6.2"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.4.3",
@@ -42,13 +42,12 @@
 		"@types/react-cache": "^2.0.1",
 		"@types/react-native": "^0.57.43",
 		"@types/react-native-vector-icons": "^6.4.0",
-		"@types/react-navigation": "^3.0.6",
-		"@types/react-navigation-material-bottom-tabs": "^0.3.1",
 		"@types/react-test-renderer": "^16.8.1",
 		"babel-jest": "^24.7.1",
 		"jest": "^24.7.1",
 		"metro-react-native-babel-preset": "^0.53.1",
 		"react-test-renderer": "16.8.3",
+		"tslint": "^5.20.1",
 		"typescript": "^3.7.0"
 	},
 	"jest": {
