@@ -1,20 +1,27 @@
 /**
- * Browse.ts
- * - Page to handle browsing new manga releases
+ * Library.ts
+ * - Handles interactions with manga saved in library.
+ * - Handles navigation to other routes.
  * Notes:
- * - N/A
- * Created 19-12-30
- * @author Filip Ekström <filip.ekstrom98@gmail.com>
+ * Created 19-04-11
+ * @author Elias Mawa <elias@emawa.io>
  */
 
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
+
 import { NavigationStackProp } from 'react-navigation-stack';
+
 import { getLatest } from '../../core/source/Source';
 import { Sources, SourceType } from '../../core/source/SourceList';
 import { Preview } from '../../lib/manga/Preview';
 import StyledHeader from '../Components/StyledHeader';
 import StyledStaticFlatList from '../Components/StyledStaticFlatList';
+import Shelf from '../Shared/Shelf';
+
+interface LibraryProps {
+	navigation: NavigationStackProp;
+}
 
 interface BrowseState {
 	list: Preview[];
@@ -25,10 +32,7 @@ interface BrowseProps {
 	navigation: NavigationStackProp;
 }
 
-/**
- * Component for saved manga
- */
-class Browse extends Component<BrowseProps, BrowseState> {
+class BrowseTabView extends Component<BrowseProps, BrowseState> {
 	constructor(props: BrowseProps){
 		super(props);
 		this.state = {
@@ -38,26 +42,29 @@ class Browse extends Component<BrowseProps, BrowseState> {
 	}
 
 	public async componentDidMount() {
-		await getLatest(Sources[2], this.state.page).then((res) => {
+		console.log('getting');
+		await getLatest(Sources.mangasee, this.state.page).then((res) => {
 			this.setState({list: res ?? []});
+			// console.log(this.state.list);
 		});
 	}
 
 	public render() {
+		const onScrollHandler = async () => {
+			const res = await getLatest(Sources.mangasee, this.state.page);
+			// console.log(res);
 
-		const pushBrowser = () => {
+			const list = this.state.list?.concat(res ? res : []);
+			this.setState({page: this.state.page + 1, list});
+		};
+
+		const pushBrowser = (state: SourceType) => {
 			this.props.navigation.push('BrowseTabNavigator');
 		};
 
 		return (
-			<View style={{height: '100%'}} >
-				<StyledHeader style={styles.Footer} text="Search Manga">
-					<View style={{width: "50%"}}>
-						{/* <StyledButton onPress={() => this.props.navigation.navigate(Routes.Library.name)} text="Back to library"></StyledButton> */}
-					</View>
-				</StyledHeader>
-				{/* <Shelf list={this.state.list} onReachEnd={onScrollHandler} onSelect={(item) => console.warn("Pressed", item.id ?? item.title)}/> */}
-				<StyledStaticFlatList list={Sources} onSelect={pushBrowser} />
+			<View style={{}} >
+				<Shelf list={this.state.list} onReachEnd={onScrollHandler} onSelect={(item) => console.warn("Pressed", item.id ?? item.title)}/>
 			</View>
 		);
 	}
@@ -67,11 +74,13 @@ class Browse extends Component<BrowseProps, BrowseState> {
 
 const styles = StyleSheet.create({
 	Shelf: {
-		position: 'absolute',
-		top: 0,
+		// position: 'absolute',
+		// top: 0,
 
-		height: '95%',
+		// height: '95%',
 		width: '100%',
+
+		marginBottom: '20%',
 	},
 	Footer: {
 		position: 'absolute',
@@ -82,4 +91,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default Browse;
+export default BrowseTabView;
