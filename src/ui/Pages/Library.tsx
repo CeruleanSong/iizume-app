@@ -61,23 +61,23 @@ class Library extends React.Component<LibraryProps> {
 						(<Icon name="expand-less" style={styles.actionButtonIcon}/>)}
 					degrees={rotation}>
 
-					<ActionButton.Item buttonColor='#e05c74' title="Latest" size={smallButtonRadius}
-						onPress={() => this.props.navigation.push(Routes.Latest.name)}>
+					<ActionButton.Item buttonColor='#e05c74' title="Updates" size={smallButtonRadius}
+						onPress={() => this.props.navigation.navigate(Routes.Latest.name)}>
 						<Icon name="new-releases" style={styles.actionButtonIcon} />
 					</ActionButton.Item>
 
 					<ActionButton.Item buttonColor='#e05c74' title="History" size={smallButtonRadius}
-						onPress={() => this.props.navigation.push(Routes.Latest.name)}>
+						onPress={() => this.props.navigation.navigate(Routes.Latest.name)}>
 						<Icon name="history" style={styles.actionButtonIcon} />
 					</ActionButton.Item>
 
 					<ActionButton.Item buttonColor='#e05c74' title='Browse' size={smallButtonRadius}
-						onPress={() => this.props.navigation.push(`${Routes.Browse.name}`)}>
+						onPress={() => this.props.navigation.navigate(`${Routes.Browse.name}`)}>
 						<Icon name="search" style={styles.actionButtonIcon} />
 					</ActionButton.Item>
 
 					<ActionButton.Item buttonColor='#e05c74' title="Settings" size={smallButtonRadius}
-						onPress={() => this.props.navigation.push(Routes.Settings.name)}>
+						onPress={() => this.props.navigation.navigate(Routes.Settings.name)}>
 						<Icon name="settings" style={styles.actionButtonIcon} />
 					</ActionButton.Item>
 				</ActionButton>
