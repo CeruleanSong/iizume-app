@@ -39,6 +39,11 @@ class ActionButtonNavigator extends React.Component<ActionButtonNavigatorProps> 
 					(<Icon name="expand-less" style={styles.actionButtonIcon}/>)}
 				degrees={rotation}>
 
+				<ActionButton.Item buttonColor='#e05c74' title="Library" size={smallButtonRadius}
+					onPress={() => this.props.navigation.navigate(AppRoutes.Library.name)}>
+					<Icon name="book" style={styles.actionButtonIcon} />
+				</ActionButton.Item>
+
 				<ActionButton.Item buttonColor='#e05c74' title="Updates" size={smallButtonRadius}
 					onPress={() => this.props.navigation.navigate(AppRoutes.Updates.name)}>
 					<Icon name="new-releases" style={styles.actionButtonIcon} />
