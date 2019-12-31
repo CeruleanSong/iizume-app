@@ -12,16 +12,10 @@ import { StyleSheet, View } from 'react-native';
 
 import { NavigationStackProp } from 'react-navigation-stack';
 
-import { getLatest } from '../../core/source/Source';
-import { Sources, SourceType } from '../../core/source/SourceList';
-import { Preview } from '../../lib/manga/Preview';
-import Shelf from '../components/Shelf';
-import StyledHeader from '../components/StyledHeader';
-import StyledStaticFlatList from '../components/StyledStaticFlatList';
-
-interface LibraryProps {
-	navigation: NavigationStackProp;
-}
+import { getLatest } from '../../../core/source/Source';
+import { Sources, SourceType } from '../../../core/source/SourceList';
+import { Preview } from '../../../lib/manga/Preview';
+import Shelf from '../../components/Shelf';
 
 interface BrowseState {
 	list: Preview[];
@@ -61,10 +55,6 @@ class BrowseTabView extends Component<BrowseProps, BrowseState> {
 			}
 		};
 
-		const pushBrowser = (state: SourceType) => {
-			this.props.navigation.push('BrowseTabNavigator');
-		};
-
 		return (
 			<View style={{}} >
 				<Shelf list={this.state.list} onReachEnd={onScrollHandler} onSelect={(item) => console.warn("Pressed", item.id ?? item.title)}/>
@@ -72,26 +62,5 @@ class BrowseTabView extends Component<BrowseProps, BrowseState> {
 		);
 	}
 }
-
-/*************** Styles ***************/
-
-const styles = StyleSheet.create({
-	Shelf: {
-		// position: 'absolute',
-		// top: 0,
-
-		// height: '95%',
-		width: '100%',
-
-		marginBottom: '20%',
-	},
-	Footer: {
-		position: 'absolute',
-		top: '90%',
-
-		height: '5%',
-		width: '100%',
-	},
-});
 
 export default BrowseTabView;

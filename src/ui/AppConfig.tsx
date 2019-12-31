@@ -8,12 +8,12 @@
  */
 
 import { NavigationSwitchRouterConfig } from 'react-navigation';
-import Browse from './pages/Browse';
-import BrowseTabNavigator from './pages/BrowseTabNavigator';
 import History from './pages/History';
 import Library from "./pages/Library";
 import Settings from "./pages/Settings";
 import Updates from './pages/Updates';
+import Browse from './pages/browse/Browse';
+import BrowseTabNavigator from './pages/browse/BrowseTabNavigator';
 
 /**
  * Top level routes for application
@@ -57,7 +57,7 @@ const AppRoutes = {
 const AppConfig: NavigationSwitchRouterConfig =  {
 	initialRouteName: AppRoutes.Library.name,
 	backBehavior: 'initialRoute',
-	headerMode: "none", // ignore
+	headerMode: "none", // ignore linter
 };
 
 export {

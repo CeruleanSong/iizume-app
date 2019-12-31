@@ -13,11 +13,10 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 import { MaterialTabBarOptions } from 'react-navigation-tabs/lib/typescript/src/types';
 import BrowseTabView from './BrowseSource';
-import Settings from './Settings';
 
 const Routes = {
 	LatestView: {
-		screen: Settings,
+		screen: BrowseTabView,
 		navigationOptions: {
 			tabBarLabel: "Latest",
 			barStyle: { backgroundColor: 'purple' },
@@ -45,7 +44,7 @@ const Routes = {
 		},
 	},
 	HotView: {
-		screen: Settings,
+		screen: BrowseTabView,
 		showIcon: true,
 		navigationOptions: {
 			showLabel: false,
