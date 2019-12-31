@@ -13,7 +13,7 @@ import Library from "./pages/Library";
 import Settings from "./pages/Settings";
 import Updates from './pages/Updates';
 import Browse from './pages/browse/Browse';
-import BrowseTabNavigator from './pages/browse/BrowseTabNavigator';
+import BrowseTabNavigator from './pages/browse/SourceViewConfig';
 
 /**
  * Top level routes for application

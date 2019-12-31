@@ -12,7 +12,7 @@ import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIc
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 import { MaterialTabBarOptions } from 'react-navigation-tabs/lib/typescript/src/types';
-import BrowseTabView from './BrowseSource';
+import BrowseTabView from './SourceViewSearch';
 
 const Routes = {
 	LatestView: {
@@ -82,4 +82,5 @@ const tabBarOptions = {
 	// });
 
 const BrowseTabNavigator = createMaterialTopTabNavigator(Routes, tabBarOptions);
+
 export default BrowseTabNavigator;

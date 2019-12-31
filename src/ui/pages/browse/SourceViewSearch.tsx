@@ -16,6 +16,7 @@ import { getLatest } from '../../../core/source/Source';
 import { Sources, SourceType } from '../../../core/source/SourceList';
 import { Preview } from '../../../lib/manga/Preview';
 import Shelf from '../../components/Shelf';
+import ActionButtonNavigator from '../../shared/ActionButtonNavigator';
 
 interface BrowseState {
 	list: Preview[];
@@ -58,6 +59,8 @@ class BrowseTabView extends Component<BrowseProps, BrowseState> {
 		return (
 			<View style={{}} >
 				<Shelf list={this.state.list} onReachEnd={onScrollHandler} onSelect={(item) => console.warn("Pressed", item.id ?? item.title)}/>
+				{ /*************** Navigation ***************/ }
+				<ActionButtonNavigator navigation={this.props.navigation} />
 			</View>
 		);
 	}

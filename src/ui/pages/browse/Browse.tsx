@@ -15,6 +15,7 @@ import { Sources } from '../../../core/source/SourceList';
 import { Preview } from '../../../lib/manga/Preview';
 import StyledHeader from '../../components/StyledHeader';
 import StyledStaticFlatList from '../../components/StyledStaticFlatList';
+import ActionButtonNavigator from '../../shared/ActionButtonNavigator';
 
 interface BrowseState {
 	list: Preview[];
@@ -58,6 +59,8 @@ class Browse extends Component<BrowseProps, BrowseState> {
 				</StyledHeader>
 				{/* <Shelf list={this.state.list} onReachEnd={onScrollHandler} onSelect={(item) => console.warn("Pressed", item.id ?? item.title)}/> */}
 				<StyledStaticFlatList list={Sources} onSelect={pushBrowser} />
+				{ /*************** Navigation ***************/ }
+				<ActionButtonNavigator navigation={this.props.navigation} />
 			</View>
 		);
 	}
