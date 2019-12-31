@@ -11,7 +11,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationStackProp } from 'react-navigation-stack';
 import { getLatest } from '../../core/source/Source';
-import { Sources, SourceType } from '../../core/source/SourceList';
+import { Sources } from '../../core/source/SourceList';
 import { Preview } from '../../lib/manga/Preview';
 import StyledHeader from '../components/StyledHeader';
 import StyledStaticFlatList from '../components/StyledStaticFlatList';

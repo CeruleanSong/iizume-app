@@ -7,9 +7,8 @@
  * @author Elias Mawa <elias@emawa.io>
  */
 
-import React, { JSXElementConstructor } from 'react';
-import { ActivityIndicator, FlatList, Image, RefreshControl, StyleSheet, Text, View } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import React from 'react';
+import { ActivityIndicator, FlatList, StyleSheet, View } from 'react-native';
 import { Preview } from '../../lib/manga/Preview';
 import ShelfItem from './ShelfItem';
 

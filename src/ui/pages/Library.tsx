@@ -8,28 +8,13 @@
  */
 
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
-import ActionButton from 'react-native-action-button';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { View } from 'react-native';
 import { NavigationStackProp } from 'react-navigation-stack';
-
-import StyledButton from '../components/StyledButton';
 import StyledHeader from '../components/StyledHeader';
-
-import { getLatest } from '../../core/source/Source';
-import { Sources } from '../../core/source/SourceList';
-import { Preview } from '../../lib/manga/Preview';
-import { AppRoutes } from "../AppConfig";
-import Shelf from '../components/Shelf';
-import ShelfItem from '../components/ShelfItem';
+import ActionButtonNavigator from '../shared/ActionButtonNavigator';
 
 interface LibraryProps {
 	navigation: NavigationStackProp;
-}
-
-interface LibraryState {
-	savedManga: Preview[];
 }
 
 /**
@@ -48,56 +33,16 @@ class Library extends React.Component<LibraryProps> {
 		return (
 			<View style={{flex: 1, backgroundColor: '#f3f3f3'}}>
 				{ /*************** Main Component ***************/ }
-				<StyledHeader text="Saved Manga">
+				<StyledHeader text="Library">
 					<View style={{width: "50%"}}>
-						{/* height: 40 */}
-						{/* <StyledButton onPress={() => this.props.navigation.navigate(Routes.Browse.name)} text="Browse new manga"></StyledButton> */}
 					</View>
 				</StyledHeader>
+
 				{ /*************** Navigation ***************/ }
-				<ActionButton buttonColor="#ffb7c5" size={largeButtonRadius}
-					renderIcon={(active) => (active) ?
-						(<Icon name="expand-less" style={styles.actionButtonIcon}/>) :
-						(<Icon name="expand-less" style={styles.actionButtonIcon}/>)}
-					degrees={rotation}>
-
-					<ActionButton.Item buttonColor='#e05c74' title="Updates" size={smallButtonRadius}
-						onPress={() => this.props.navigation.navigate(AppRoutes.Updates.name)}>
-						<Icon name="new-releases" style={styles.actionButtonIcon} />
-					</ActionButton.Item>
-
-					<ActionButton.Item buttonColor='#e05c74' title="History" size={smallButtonRadius}
-						onPress={() => this.props.navigation.navigate(AppRoutes.Updates.name)}>
-						<Icon name="history" style={styles.actionButtonIcon} />
-					</ActionButton.Item>
-
-					<ActionButton.Item buttonColor='#e05c74' title='Browse' size={smallButtonRadius}
-						onPress={() => this.props.navigation.navigate(`${AppRoutes.Browse.name}`)}>
-						<Icon name="search" style={styles.actionButtonIcon} />
-					</ActionButton.Item>
-
-					<ActionButton.Item buttonColor='#e05c74' title="Settings" size={smallButtonRadius}
-						onPress={() => this.props.navigation.navigate(AppRoutes.Settings.name)}>
-						<Icon name="settings" style={styles.actionButtonIcon} />
-					</ActionButton.Item>
-				</ActionButton>
+				<ActionButtonNavigator navigation={this.props.navigation} />
 			</View>
 		);
 	}
 }
-
-/*************** Styles ***************/
-
-const largeButtonRadius = 48;
-const smallButtonRadius = 36;
-const rotation = 180;
-
-const styles = StyleSheet.create({
-	actionButtonIcon: {
-		fontSize: 20,
-		height: 22,
-		color: 'white',
-	},
-});
 
 export default Library;

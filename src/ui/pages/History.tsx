@@ -1,37 +1,36 @@
  /**
-  * Settings.ts
-  * - Handles application settings.
+  * HistoryProps.ts
+  * - Handles manga recently read by the user
   * Notes:
   * - N/A
-  * Created 19-04-11
+  * Created 19-12-31
   * @author Elias Mawa <elias@emawa.io>
   */
 
 import React from 'react';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 
 import { NavigationStackProp } from 'react-navigation-stack';
 import StyledHeader from '../components/StyledHeader';
+import ActionButtonNavigator from '../shared/ActionButtonNavigator';
 
-interface SettingsProps {
+interface HistoryProps {
 	navigation: NavigationStackProp;
 }
 
-/**
- * Component for settings interactions
- */
-const Settings: React.FC<SettingsProps> = () => {
+const History: React.FC<HistoryProps> = (props: HistoryProps) => {
 	return (
 		<View style={{flex: 1, backgroundColor: '#f3f3f3'}}>
 			{ /*************** Main Component ***************/ }
-			<StyledHeader text="Settings">
+			<StyledHeader text="History">
 				<View style={{width: "50%"}}>
 				</View>
 			</StyledHeader>
 
 			{ /*************** Navigation ***************/ }
+			<ActionButtonNavigator navigation={props.navigation} />
 		</View>
 	);
 };
 
-export default Settings;
+export default History;

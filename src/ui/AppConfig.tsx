@@ -2,15 +2,18 @@
  * AppConfig.ts
  * - Stores top level routes in program
  * Notes:
- * - N/A
+ * - Ignore headermode error by linter
  * Created 19-12-28
  * @author Elias Mawa <elias@emawa.io>
  */
 
+import { NavigationSwitchRouterConfig } from 'react-navigation';
 import Browse from './pages/Browse';
 import BrowseTabNavigator from './pages/BrowseTabNavigator';
+import History from './pages/History';
 import Library from "./pages/Library";
 import Settings from "./pages/Settings";
+import Updates from './pages/Updates';
 
 /**
  * Top level routes for application
@@ -24,7 +27,12 @@ const AppRoutes = {
 	/* Latest updates of saved manga */
 	Updates: {
 		name: "Updates",
-		screen: Browse,
+		screen: Updates,
+	},
+	/* Recently read manga */
+	History: {
+		name: "History",
+		screen: History,
 	},
 	/* Search for new manga */
 	Browse: {
@@ -46,9 +54,10 @@ const AppRoutes = {
 /**
  * Configuration for top level route
  */
-const AppConfig: any =  {
-	initialRouteName: `${AppRoutes.Library.name}`,
-	headerMode: "none",
+const AppConfig: NavigationSwitchRouterConfig =  {
+	initialRouteName: AppRoutes.Library.name,
+	backBehavior: 'initialRoute',
+	headerMode: "none", // ignore
 };
 
 export {
