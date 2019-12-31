@@ -42,16 +42,14 @@ class BrowseTabView extends Component<BrowseProps, BrowseState> {
 	}
 
 	public async componentDidMount() {
-		console.log('getting');
-		await getLatest(Sources.mangasee, this.state.page).then((res) => {
+		await getLatest(Sources.mangasee).then((res) => {
 			this.setState({list: res ?? []});
-			// console.log(this.state.list);
 		});
 	}
 
 	public render() {
 		const onScrollHandler = async () => {
-			const res = await getLatest(Sources.mangasee, this.state.page);
+			const res = await getLatest(Sources.mangasee, this.state.page + 1);
 			// console.log(res);
 
 			const list = this.state.list?.concat(res ? res : []);
