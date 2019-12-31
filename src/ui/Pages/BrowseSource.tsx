@@ -26,6 +26,7 @@ interface LibraryProps {
 interface BrowseState {
 	list: Preview[];
 	page: number;
+	refreshing: boolean;
 }
 
 interface BrowseProps {
@@ -38,6 +39,7 @@ class BrowseTabView extends Component<BrowseProps, BrowseState> {
 		this.state = {
 			list: [],
 			page: 1,
+			refreshing: false,
 		};
 	}
 
@@ -49,11 +51,14 @@ class BrowseTabView extends Component<BrowseProps, BrowseState> {
 
 	public render() {
 		const onScrollHandler = async () => {
-			const res = await getLatest(Sources.mangasee, this.state.page + 1);
-			// console.log(res);
+			if (!this.state.refreshing) {
+				this.setState({page: this.state.page, list: this.state.list, refreshing: true});
+				const res = await getLatest(Sources.mangasee, this.state.page + 1);
 
-			const list = this.state.list?.concat(res ? res : []);
-			this.setState({page: this.state.page + 1, list});
+				const list = this.state.list?.concat(res ? res : []);
+
+				this.setState({page: this.state.page + 1, list, refreshing: false});
+			}
 		};
 
 		const pushBrowser = (state: SourceType) => {
