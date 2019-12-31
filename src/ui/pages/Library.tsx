@@ -14,15 +14,15 @@ import ActionButton from 'react-native-action-button';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { NavigationStackProp } from 'react-navigation-stack';
 
-import StyledButton from '../Components/StyledButton';
-import StyledHeader from '../Components/StyledHeader';
+import StyledButton from '../components/StyledButton';
+import StyledHeader from '../components/StyledHeader';
 
 import { getLatest } from '../../core/source/Source';
 import { Sources } from '../../core/source/SourceList';
 import { Preview } from '../../lib/manga/Preview';
-import Routes from "../RouteConfig";
-import Shelf from '../Shared/Shelf';
-import ShelfItem from '../Shared/ShelfItem';
+import { AppRoutes } from "../AppConfig";
+import Shelf from '../components/Shelf';
+import ShelfItem from '../components/ShelfItem';
 
 interface LibraryProps {
 	navigation: NavigationStackProp;
@@ -62,22 +62,22 @@ class Library extends React.Component<LibraryProps> {
 					degrees={rotation}>
 
 					<ActionButton.Item buttonColor='#e05c74' title="Updates" size={smallButtonRadius}
-						onPress={() => this.props.navigation.navigate(Routes.Latest.name)}>
+						onPress={() => this.props.navigation.navigate(AppRoutes.Updates.name)}>
 						<Icon name="new-releases" style={styles.actionButtonIcon} />
 					</ActionButton.Item>
 
 					<ActionButton.Item buttonColor='#e05c74' title="History" size={smallButtonRadius}
-						onPress={() => this.props.navigation.navigate(Routes.Latest.name)}>
+						onPress={() => this.props.navigation.navigate(AppRoutes.Updates.name)}>
 						<Icon name="history" style={styles.actionButtonIcon} />
 					</ActionButton.Item>
 
 					<ActionButton.Item buttonColor='#e05c74' title='Browse' size={smallButtonRadius}
-						onPress={() => this.props.navigation.navigate(`${Routes.Browse.name}`)}>
+						onPress={() => this.props.navigation.navigate(`${AppRoutes.Browse.name}`)}>
 						<Icon name="search" style={styles.actionButtonIcon} />
 					</ActionButton.Item>
 
 					<ActionButton.Item buttonColor='#e05c74' title="Settings" size={smallButtonRadius}
-						onPress={() => this.props.navigation.navigate(Routes.Settings.name)}>
+						onPress={() => this.props.navigation.navigate(AppRoutes.Settings.name)}>
 						<Icon name="settings" style={styles.actionButtonIcon} />
 					</ActionButton.Item>
 				</ActionButton>

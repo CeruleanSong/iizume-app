@@ -7,10 +7,10 @@
  * @author Elias Mawa <elias@emawa.io>
  */
 
-import Browse from './Pages/Browse';
-import BrowseTabNavigator from './Pages/BrowseTabNavigator';
-import Library from "./Pages/Library";
-import Settings from "./Pages/Settings";
+import Browse from './pages/Browse';
+import BrowseTabNavigator from './pages/BrowseTabNavigator';
+import Library from "./pages/Library";
+import Settings from "./pages/Settings";
 
 /**
  * Top level routes for application
@@ -24,6 +24,11 @@ const AppRoutes = {
 	/* Latest updates of saved manga */
 	Updates: {
 		name: "Updates",
+		screen: Browse,
+	},
+	/* Search for new manga */
+	Browse: {
+		name: "Browse",
 		screen: Browse,
 	},
 	/* Search for new manga */
@@ -42,7 +47,7 @@ const AppRoutes = {
  * Configuration for top level route
  */
 const AppConfig: any =  {
-	initialRouteName: `${AppRoutes.Library.name}`, // ? allow user to change later?
+	initialRouteName: `${AppRoutes.Library.name}`,
 	headerMode: "none",
 };
 

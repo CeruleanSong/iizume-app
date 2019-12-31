@@ -13,8 +13,8 @@ import { NavigationStackProp } from 'react-navigation-stack';
 import { getLatest } from '../../core/source/Source';
 import { Sources, SourceType } from '../../core/source/SourceList';
 import { Preview } from '../../lib/manga/Preview';
-import StyledHeader from '../Components/StyledHeader';
-import StyledStaticFlatList from '../Components/StyledStaticFlatList';
+import StyledHeader from '../components/StyledHeader';
+import StyledStaticFlatList from '../components/StyledStaticFlatList';
 
 interface BrowseState {
 	list: Preview[];
