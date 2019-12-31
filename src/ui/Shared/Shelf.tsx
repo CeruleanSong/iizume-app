@@ -65,12 +65,12 @@ const Shelf: React.FC<ShelfProps> = (props: ShelfProps)  => {
 
 const refreshThreshold = .1;
 
-const cols = 2;
+const cols = 3;
 
 const styles = StyleSheet.create({
 	container: {
 		width: "100%",
-		padding: 8,
+		// padding: 4,
 	},
 	shelf: {
 		display: 'flex',
@@ -79,8 +79,6 @@ const styles = StyleSheet.create({
 		justifyContent: 'flex-start',
 
 		minWidth: '100%',
-
-		backgroundColor: 'red',
 	},
 });
 

@@ -28,7 +28,7 @@ const ShelfItem: React.FC<ItemProps> = (props: ItemProps) => {
 					source={{uri: props.uri}} />
 			</View>
 			<View style={styles.itemTitle}>
-				<Text style={styles.itemText}> {props.title} </Text>
+				<Text numberOfLines={1} style={styles.itemText}> {props.title} </Text>
 			</View>
 		</TouchableOpacity>
 	);
@@ -39,24 +39,29 @@ const ShelfItem: React.FC<ItemProps> = (props: ItemProps) => {
 const styles = StyleSheet.create({
 	item: {
 		marginTop: "2%",
-		marginLeft: "auto",
-		marginRight: "auto",
+		// marginLeft: "auto",
+		// marginRight: "auto",
+		marginHorizontal: "1%",
 
 		borderRadius: 5,
 
-		width: "48%",
-		aspectRatio: .75,
+		// width: "48%",
+		width: "31.333%",
+		aspectRatio: .7,
 	},
 	itemTitle: {
 		width: '100%',
 		minHeight: "15%",
-		backgroundColor: '#e05c74',
+		maxHeight: "15%",
+		backgroundColor: '#ffb7c5',
 
-		justifyContent: "center",
-		alignItems: "center",
+		justifyContent: 'center',
+		alignItems: 'flex-start',
 
 		borderBottomStartRadius: 5,
 		borderBottomEndRadius: 5,
+
+		// overflow: 'ellipsis',
 	},
 	itemText: {
 		fontSize: 14,
