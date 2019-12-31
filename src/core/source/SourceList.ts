@@ -11,12 +11,11 @@ interface SourceType {
 	name: string;
 	root: string;
 	nsfw: boolean;
-	operation?: null;
+	operation?: () => {};
 	aliases?: [
 		string,
 	];
 }
-
 const SFWSources = {
 	mangadex: {
 		name: 'mangadex',
@@ -45,16 +44,16 @@ const SFWSources = {
 };
 
 const NSFWSources: any = {
-	nhentai: {
-		name: 'nhentai',
-		root: 'https://nhentai.net',
-		nsfw: true,
-	},
-	ehentai: {
-		name: 'e-hentai',
-		root: 'https://e-hentai.org/',
-		nsfw: true,
-	},
+	// nhentai: {
+	// 	name: 'nhentai',
+	// 	root: 'https://nhentai.net',
+	// 	nsfw: true,
+	// },
+	// ehentai: {
+	// 	name: 'e-hentai',
+	// 	root: 'https://e-hentai.org/',
+	// 	nsfw: true,
+	// },
 };
 
 // const Sources: any = [...SFWSources];
