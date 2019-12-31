@@ -10,16 +10,13 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from "react-navigation-stack";
 
-import Routes from "./RouteConfig";
+import { AppConfig, AppRoutes } from "./AppConfig";
 
 /**
  * Create a stack navigator
  */
 const AppNavigator = () => {
-	return createStackNavigator(Routes, {
-		initialRouteName: `${Routes.Library.name}`,
-		headerMode: "none",
-	});
+	return createStackNavigator(AppRoutes, AppConfig);
 };
 
 /**
