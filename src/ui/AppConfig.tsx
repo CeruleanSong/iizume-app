@@ -7,13 +7,15 @@
  * @author Elias Mawa <elias@emawa.io>
  */
 
-import { NavigationSwitchRouterConfig } from 'react-navigation';
+import React from "react";
+
+import { NavigationTabRouterConfig } from 'react-navigation';
 import History from './pages/History';
 import Library from "./pages/Library";
 import Settings from "./pages/Settings";
 import Updates from './pages/Updates';
-import Browse from './pages/browse/Browse';
-import BrowseTabNavigator from './pages/browse/SourceViewConfig';
+
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 /**
  * Top level routes for application
@@ -34,16 +36,6 @@ const AppRoutes = {
 		name: "History",
 		screen: History,
 	},
-	/* Search for new manga */
-	Browse: {
-		name: "Browse",
-		screen: Browse,
-	},
-	/* Search for new manga */
-	BrowseTabNavigator: {
-		name: 'BrowseTabNavigator',
-		screen: BrowseTabNavigator,
-	},
 	/* Application settings */
 	Settings: {
 		name: "Settings",
@@ -54,10 +46,18 @@ const AppRoutes = {
 /**
  * Configuration for top level route
  */
-const AppConfig: NavigationSwitchRouterConfig =  {
+const AppConfig: any =  {
 	initialRouteName: AppRoutes.Library.name,
 	backBehavior: 'initialRoute',
 	headerMode: "none", // ignore linter
+	defaultNavigationOptions: ({ navigation }: any) => ({
+		tabBarIcon: ({ focused, horizontal, tintColor }: any) => <MaterialIcon name={"search"} size={25} color={tintColor} /> }),
+	tabBarOptions: {
+		activeTintColor: '#e05c74',
+		inactiveTintColor: '#d4d4d4',
+		activeBackgroundColor: "#363636",
+		inactiveBackgroundColor: "#363636",
+	},
 };
 
 export {

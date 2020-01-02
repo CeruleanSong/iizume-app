@@ -26,9 +26,6 @@ const Updates: React.FC<UpdatesProps> = (props: UpdatesProps) => {
 				<View style={{width: "50%"}}>
 				</View>
 			</StyledHeader>
-
-			{ /*************** Navigation ***************/ }
-			<ActionButtonNavigator navigation={props.navigation} />
 		</View>
 	);
 };

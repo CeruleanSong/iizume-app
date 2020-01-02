@@ -11,7 +11,6 @@ import React from 'react';
 import { View } from 'react-native';
 import { NavigationStackProp } from 'react-navigation-stack';
 import StyledHeader from '../components/StyledHeader';
-import ActionButtonNavigator from '../shared/ActionButtonNavigator';
 
 interface LibraryProps {
 	navigation: NavigationStackProp;
@@ -37,9 +36,6 @@ class Library extends React.Component<LibraryProps> {
 					<View style={{width: "50%"}}>
 					</View>
 				</StyledHeader>
-
-				{ /*************** Navigation ***************/ }
-				<ActionButtonNavigator navigation={this.props.navigation} />
 			</View>
 		);
 	}

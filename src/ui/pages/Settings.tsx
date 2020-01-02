@@ -28,8 +28,6 @@ const Settings: React.FC<SettingsProps> = () => {
 				<View style={{width: "50%"}}>
 				</View>
 			</StyledHeader>
-
-			{ /*************** Navigation ***************/ }
 		</View>
 	);
 };

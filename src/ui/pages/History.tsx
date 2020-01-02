@@ -12,7 +12,6 @@ import { Text, View } from 'react-native';
 
 import { NavigationStackProp } from 'react-navigation-stack';
 import StyledHeader from '../components/StyledHeader';
-import ActionButtonNavigator from '../shared/ActionButtonNavigator';
 
 interface HistoryProps {
 	navigation: NavigationStackProp;
@@ -26,9 +25,6 @@ const History: React.FC<HistoryProps> = (props: HistoryProps) => {
 				<View style={{width: "50%"}}>
 				</View>
 			</StyledHeader>
-
-			{ /*************** Navigation ***************/ }
-			<ActionButtonNavigator navigation={props.navigation} />
 		</View>
 	);
 };

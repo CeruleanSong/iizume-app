@@ -11,11 +11,10 @@ import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationStackProp } from 'react-navigation-stack';
 import { getLatest } from '../../../core/source/Source';
-import { Sources } from '../../../core/source/SourceList';
+import { Sources, SourceType } from '../../../core/source/SourceList';
 import { Preview } from '../../../lib/manga/Preview';
 import StyledHeader from '../../components/StyledHeader';
 import StyledStaticFlatList from '../../components/StyledStaticFlatList';
-import ActionButtonNavigator from '../../shared/ActionButtonNavigator';
 
 interface BrowseState {
 	list: Preview[];
@@ -46,8 +45,8 @@ class Browse extends Component<BrowseProps, BrowseState> {
 
 	public render() {
 
-		const pushBrowser = () => {
-			this.props.navigation.push('BrowseTabNavigator');
+		const pushBrowser = (selected: SourceType) => {
+			this.props.navigation.push('BrowseSource', {source: selected});
 		};
 
 		return (
@@ -59,8 +58,6 @@ class Browse extends Component<BrowseProps, BrowseState> {
 				</StyledHeader>
 				{/* <Shelf list={this.state.list} onReachEnd={onScrollHandler} onSelect={(item) => console.warn("Pressed", item.id ?? item.title)}/> */}
 				<StyledStaticFlatList list={Sources} onSelect={pushBrowser} />
-				{ /*************** Navigation ***************/ }
-				<ActionButtonNavigator navigation={this.props.navigation} />
 			</View>
 		);
 	}
