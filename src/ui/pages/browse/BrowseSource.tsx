@@ -9,7 +9,7 @@
 
 import React from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
-import { SceneMap, TabView } from 'react-native-tab-view';
+import { SceneMap, TabView, TabBar } from 'react-native-tab-view';
 import { NavigationStackProp } from 'react-navigation-stack';
 import StyledHeader from '../../components/StyledHeader';
 import BrowseTabView from './SourceViewSearch';
@@ -38,8 +38,6 @@ const BrowseSource: React.FC<BrowseSourceProps> = (props: BrowseSourceProps) => 
 		hot: Search,
 	});
 
-	console.warn(props.navigation);
-
 	return (
 		<View style={{height: "100%"}}>
 			<StyledHeader text={`Search Manga (Source: ${props.navigation.state?.params?.source?.name ?? "Unknown"})`} />
@@ -48,6 +46,7 @@ const BrowseSource: React.FC<BrowseSourceProps> = (props: BrowseSourceProps) => 
 				renderScene={renderScene}
 				onIndexChange={setIndex}
 				initialLayout={initialLayout}
+				renderTabBar={(tabProps) => <TabBar {...tabProps} style={{backgroundColor: "#e05c74"}} />}
 			/>
 		</View>
 	);
