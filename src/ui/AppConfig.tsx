@@ -10,6 +10,7 @@
 import React from "react";
 
 import { NavigationTabRouterConfig } from 'react-navigation';
+import Gallery from "./pages/Gallery";
 import History from './pages/History';
 import Library from "./pages/Library";
 import Settings from "./pages/Settings";
@@ -31,6 +32,7 @@ const BrowseRoutes = createStackNavigator({
 
 const LibraryRoutes = createStackNavigator({
 	Library,
+	Gallery,
 }, {
 	initialRouteName: "Library",
 	headerMode: "none", // ignore linter
