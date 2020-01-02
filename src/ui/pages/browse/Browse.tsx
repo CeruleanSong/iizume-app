@@ -46,7 +46,7 @@ class Browse extends Component<BrowseProps, BrowseState> {
 	public render() {
 
 		const pushBrowser = (selected: SourceType) => {
-			this.props.navigation.push('BrowseSource', {source: selected});
+			this.props.navigation.navigate('BrowseSource', {source: selected});
 		};
 
 		return (
