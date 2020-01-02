@@ -39,7 +39,7 @@ const StyledHeader = (props: HeaderProps) => {
 	};
 
 	return (
-		<View style={style.header}>
+		<View style={props.showBackButton ? [style.header] : [style.header, style.headerCenter]}>
 			{(props.showBackButton ?? true) && // Default to showing back button if not passed into props
 				<TouchableOpacity activeOpacity={0.8} style={style.backButton} onPress={() => backButtonPressed()}>
 					<Icon name="arrow-back" color="#ffffff" style={{fontSize: 22}}></Icon>
@@ -62,9 +62,15 @@ const style = StyleSheet.create({
 		backgroundColor: "#e05c74",
 
 		flexDirection: "row",
-		justifyContent: "space-between",
 		alignItems: "center",
+		justifyContent: "space-between",
 		padding: 8,
+	},
+	headerBetween: {
+		justifyContent: "space-between",
+	},
+	headerCenter: {
+		justifyContent: "center",
 	},
 	headerText: {
 		fontWeight: "bold",
