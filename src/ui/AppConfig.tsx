@@ -14,18 +14,41 @@ import History from './pages/History';
 import Library from "./pages/Library";
 import Settings from "./pages/Settings";
 import Updates from './pages/Updates';
+import Browse from './pages/browse/Browse';
+import BrowseSource from './pages/browse/BrowseSource';
 
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import { createStackNavigator } from "react-navigation-stack";
+import { createBottomTabNavigator } from "react-navigation-tabs";
+
+const BrowseRoutes = createStackNavigator({
+	Browse,
+	BrowseSource,
+}, {
+	initialRouteName: "Browse",
+	headerMode: "none", // ignore linter
+});
+
+const LibraryRoutes = createStackNavigator({
+	Library,
+}, {
+	initialRouteName: "Library",
+	headerMode: "none", // ignore linter
+});
+
+const SettingsRoutes = createStackNavigator({
+	Settings,
+}, {
+	initialRouteName: "Settings",
+	headerMode: "none", // ignore linter
+});
 
 /**
  * Top level routes for application
  */
 const AppRoutes = {
 	/* Initial route of program, shows manga saved by user */
-	Library: {
-		name: "Library",
-		screen: Library,
-	},
+	Library: LibraryRoutes,
 	/* Latest updates of saved manga */
 	Updates: {
 		name: "Updates",
@@ -36,18 +59,16 @@ const AppRoutes = {
 		name: "History",
 		screen: History,
 	},
+	Browse: BrowseRoutes,
 	/* Application settings */
-	Settings: {
-		name: "Settings",
-		screen: Settings,
-	},
+	Settings: SettingsRoutes,
 };
 
 /**
  * Configuration for top level route
  */
 const AppConfig: any =  {
-	initialRouteName: AppRoutes.Library.name,
+	initialRouteName: "Library",
 	backBehavior: 'initialRoute',
 	headerMode: "none", // ignore linter
 	defaultNavigationOptions: ({ navigation }: any) => ({
@@ -74,7 +95,13 @@ const AppConfig: any =  {
 	},
 };
 
+const AppNav = createBottomTabNavigator({
+	...AppRoutes,
+	Browse: BrowseRoutes,
+}, AppConfig);
+
 export {
 	AppConfig,
 	AppRoutes,
+	AppNav,
 };

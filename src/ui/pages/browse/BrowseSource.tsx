@@ -9,7 +9,7 @@
 
 import React from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
-import { SceneMap, TabView, TabBar } from 'react-native-tab-view';
+import { SceneMap, TabBar, TabView } from 'react-native-tab-view';
 import { NavigationStackProp } from 'react-navigation-stack';
 import StyledHeader from '../../components/StyledHeader';
 import BrowseTabView from './SourceViewSearch';

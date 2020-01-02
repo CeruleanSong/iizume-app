@@ -8,37 +8,12 @@
  */
 
 import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from "react-navigation-stack";
-import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-import { AppConfig, AppRoutes } from "./AppConfig";
-
-import Browse from './pages/browse/Browse';
-import BrowseSource from './pages/browse/BrowseSource';
-
-/**
- * Create a stack navigator
- */
-const AppNavigator = () => {
-	const BrowseNav = createStackNavigator({
-		Browse,
-		BrowseSource,
-	}, {
-		initialRouteName: "Browse",
-		headerMode: "none", // ignore linter
-	});
-
-	const TabNav = createBottomTabNavigator({
-		...AppRoutes,
-		Browse: BrowseNav,
-	}, AppConfig);
-
-	return TabNav;
-};
+import { AppNav } from "./AppConfig";
 
 /**
  * Wrap the navigator
  */
-const AppContainer = createAppContainer(AppNavigator());
+const AppContainer = createAppContainer(AppNav);
 
 export default AppContainer;
