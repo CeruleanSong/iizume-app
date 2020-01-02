@@ -22,7 +22,7 @@ const Updates: React.FC<UpdatesProps> = (props: UpdatesProps) => {
 	return (
 		<View style={{flex: 1, backgroundColor: '#f3f3f3'}}>
 			{ /*************** Main Component ***************/ }
-			<StyledHeader text="Updates">
+			<StyledHeader text="Updates" showBackButton={false}>
 				<View style={{width: "50%"}}>
 				</View>
 			</StyledHeader>

@@ -21,7 +21,7 @@ const History: React.FC<HistoryProps> = (props: HistoryProps) => {
 	return (
 		<View style={{flex: 1, backgroundColor: '#f3f3f3'}}>
 			{ /*************** Main Component ***************/ }
-			<StyledHeader text="History">
+			<StyledHeader text="History" showBackButton={false}>
 				<View style={{width: "50%"}}>
 				</View>
 			</StyledHeader>

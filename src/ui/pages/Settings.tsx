@@ -24,7 +24,7 @@ const Settings: React.FC<SettingsProps> = () => {
 	return (
 		<View style={{flex: 1, backgroundColor: '#f3f3f3'}}>
 			{ /*************** Main Component ***************/ }
-			<StyledHeader text="Settings">
+			<StyledHeader text="Settings" showBackButton={false}>
 				<View style={{width: "50%"}}>
 				</View>
 			</StyledHeader>

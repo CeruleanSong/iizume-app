@@ -51,7 +51,7 @@ class Browse extends Component<BrowseProps, BrowseState> {
 
 		return (
 			<View style={{height: '100%'}} >
-				<StyledHeader style={styles.Footer} text="Search Manga">
+				<StyledHeader style={styles.Footer} text="Search Manga" showBackButton={false}>
 					<View style={{width: "50%"}}>
 						{/* <StyledButton onPress={() => this.props.navigation.navigate(Routes.Library.name)} text="Back to library"></StyledButton> */}
 					</View>
