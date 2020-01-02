@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, ImageBackground, StyleSheet, Text, TouchableNativeFeedback, View } from 'react-native';
 import { Sources, SourceType } from '../../core/source/SourceList';
 
 interface StyledStaticFlatListItemProps {
@@ -18,11 +18,18 @@ interface StyledStaticFlatListItemProps {
 
 const StyledStaticFlatListItem: React.FC<StyledStaticFlatListItemProps> = (props: StyledStaticFlatListItemProps) => {
 	return (
-		<TouchableOpacity style={styles.item} activeOpacity={0.8} onPress={() => props.onSelect(Sources.mabgasee)}>
-			<View style={styles.itemTitle}>
-				<Text numberOfLines={1} style={styles.itemText}> {props.title} </Text>
+		<View style={styles.item}>
+			<TouchableNativeFeedback
+				onPress={() => props.onSelect(Sources.mangasee)}
+				useForeground={true}
+				background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, 0.25)')}>
+				<View>
+					<View style={styles.itemTitle}>
+					<Text numberOfLines={1} style={styles.itemText}> {props.title} </Text>
+				</View>
 			</View>
-		</TouchableOpacity>
+			</TouchableNativeFeedback>
+		</View>
 	);
 };
 
@@ -35,7 +42,8 @@ const styles = StyleSheet.create({
 		// marginRight: "auto",
 		marginHorizontal: "1%",
 
-		// borderRadius: 5,
+		borderRadius: 5,
+		overflow: "hidden",
 
 		// width: "48%",
 		// width: "100%",

@@ -8,7 +8,7 @@
  */
 
 import React from "react";
-import { StyleSheet, Text, TextStyle, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, TextStyle, TouchableNativeFeedback, View } from "react-native";
 
 interface StyledButtonProps {
 	text: string;
@@ -19,15 +19,20 @@ interface StyledButtonProps {
 
 const StyledButton = (props: StyledButtonProps) => {
 	return (
-		<TouchableOpacity style={{
-			...style.button,
-			...props.style,
-		}} onPress={props.onPress} activeOpacity={0.8}>
-			<Text style={{
-				...style.buttonText,
-				...props.textStyle,
-			}}>{props.text}</Text>
-		</TouchableOpacity>
+		<View style={{borderRadius: 10, overflow: "hidden", flex: 1}}>
+			<TouchableNativeFeedback
+				onPress={props.onPress}
+				background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, 0.25)')}>
+				<View style={{
+					...style.button,
+					...props.style}}>
+					<Text style={{
+						...style.buttonText,
+						...props.textStyle,
+					}}>{props.text}</Text>
+				</View>
+			</TouchableNativeFeedback>
+		</View>
 	);
 };
 
@@ -50,6 +55,8 @@ const style = StyleSheet.create({
 	buttonText: {
 		color: "#ffffff",
 		fontWeight: "bold",
+		textAlign: "center",
+		width: "100%",
 
 		fontSize: 16,
 	},

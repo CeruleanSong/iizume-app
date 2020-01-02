@@ -8,7 +8,7 @@
  */
 
 import React from "react";
-import { StyleSheet, Text, TextStyle, TouchableOpacity, View, ViewStyle } from "react-native";
+import { StyleSheet, TextStyle, ViewStyle } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { SourceType } from "../../core/source/SourceList";
 import ShelfItem from "../components/ShelfItem";

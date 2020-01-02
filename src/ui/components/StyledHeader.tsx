@@ -8,8 +8,7 @@
  */
 
 import React from "react";
-import { StyleSheet, Text, TextStyle, View, ViewStyle } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { StyleSheet, Text, TextStyle, TouchableNativeFeedback, View, ViewStyle } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import { withNavigation } from "react-navigation";
 import { NavigationStackProp } from "react-navigation-stack";
@@ -39,11 +38,17 @@ const StyledHeader = (props: HeaderProps) => {
 	};
 
 	return (
-		<View style={props.showBackButton ? [style.header] : [style.header, style.headerCenter]}>
+		<View style={(props.showBackButton ?? true) ? [style.header] : [style.header, style.headerCenter]}>
 			{(props.showBackButton ?? true) && // Default to showing back button if not passed into props
-				<TouchableOpacity activeOpacity={0.8} style={style.backButton} onPress={() => backButtonPressed()}>
-					<Icon name="arrow-back" color="#ffffff" style={{fontSize: 22}}></Icon>
-				</TouchableOpacity>
+				<View style={{width: 40, height: 40}}>
+					<TouchableNativeFeedback
+						onPress={() => backButtonPressed()}
+						background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, 0.25)')}>
+						<View style={style.backButton}>
+							<Icon name="arrow-back" color="#ffffff" style={{fontSize: 22}}></Icon>
+						</View>
+					</TouchableNativeFeedback>
+				</View>
 			}
 
 			<Text style={style.headerText}>{props.text}</Text>

@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, ImageBackground, StyleSheet, Text, TouchableNativeFeedback, View } from 'react-native';
 
 interface ItemProps {
 	title?: string;
@@ -21,16 +21,23 @@ interface ItemProps {
  */
 const ShelfItem: React.FC<ItemProps> = (props: ItemProps) => {
 	return (
-		<TouchableOpacity style={styles.item} activeOpacity={0.8} onPress={() => props.onSelect()}>
-			<View style={styles.imageWrapper}>
-				<Image
-					style={styles.image}
-					source={{uri: props.uri}} />
-			</View>
-			<View style={styles.itemTitle}>
-				<Text numberOfLines={1} style={styles.itemText}> {props.title} </Text>
-			</View>
-		</TouchableOpacity>
+		<View style={styles.item}>
+			<TouchableNativeFeedback
+				onPress={() => props.onSelect()}
+				useForeground={true}
+				background={TouchableNativeFeedback.Ripple('rgba(0, 0, 0, 0.25)')}>
+				<View>
+					<View style={styles.imageWrapper}>
+						<Image
+							style={styles.image}
+							source={{uri: props.uri}} />
+					</View>
+					<View style={styles.itemTitle}>
+						<Text numberOfLines={1} style={styles.itemText}> {props.title} </Text>
+					</View>
+				</View>
+			</TouchableNativeFeedback>
+		</View>
 	);
 };
 
@@ -44,6 +51,7 @@ const styles = StyleSheet.create({
 		marginHorizontal: "1%",
 
 		borderRadius: 5,
+		overflow: "hidden",
 
 		// width: "48%",
 		width: "31.333%",
