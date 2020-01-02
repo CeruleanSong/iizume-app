@@ -45,7 +45,12 @@ const StyledHeader = (props: HeaderProps) => {
 					<Icon name="arrow-back" color="#ffffff" style={{fontSize: 22}}></Icon>
 				</TouchableOpacity>
 			}
+
 			<Text style={style.headerText}>{props.text}</Text>
+
+			{(props.showBackButton ?? true) && // Dumb empty view to make sure stuff is aligned properly
+				<View></View>
+			}
 		</View>
 	);
 };
@@ -57,7 +62,7 @@ const style = StyleSheet.create({
 		backgroundColor: "#e05c74",
 
 		flexDirection: "row",
-		justifyContent: "flex-start",
+		justifyContent: "space-between",
 		alignItems: "center",
 		padding: 8,
 	},
@@ -79,7 +84,7 @@ const style = StyleSheet.create({
 		justifyContent: "center",
 		alignItems: "center",
 
-		marginRight: 20,
+		marginRight: "auto",
 		marginLeft: 10,
 	},
 });
