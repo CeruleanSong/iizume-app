@@ -51,7 +51,21 @@ const AppConfig: any =  {
 	backBehavior: 'initialRoute',
 	headerMode: "none", // ignore linter
 	defaultNavigationOptions: ({ navigation }: any) => ({
-		tabBarIcon: ({ focused, horizontal, tintColor }: any) => <MaterialIcon name={"search"} size={25} color={tintColor} /> }),
+		tabBarIcon: ({ focused, horizontal, tintColor }: any) => {
+			const { routeName } = navigation.state;
+			switch (routeName){
+				case "Library":
+					return <MaterialIcon name={"book"} size={25} color={tintColor} />;
+				case "Updates":
+					return <MaterialIcon name={"new-releases"} size={25} color={tintColor} />;
+				case "History":
+					return <MaterialIcon name={"history"} size={25} color={tintColor} />;
+				case "Browse":
+					return <MaterialIcon name={"search"} size={25} color={tintColor} />;
+				case "Settings":
+					return <MaterialIcon name={"settings"} size={25} color={tintColor} />;
+			}
+		} }),
 	tabBarOptions: {
 		activeTintColor: '#e05c74',
 		inactiveTintColor: '#d4d4d4',
