@@ -57,17 +57,18 @@ const getLatest = async (page: number = 1) => {
 
 				/* get title */
 				const titleTag = [...titleList[i].childNodes];
-				let title: any = null;
+				let title: any = [];
 
-				if (titleTag.hasOwnProperty(2)) {
-					title = titleTag[i].rawText.split(' '); // if 'HOT' span is present
+				if (titleTag.hasOwnProperty(1)) {
+					title = titleTag[1].rawText.split(' '); // if 'HOT' icon is present
 				}
 				else {
-					title = titleList[i].firstChild.rawText.split(' '); // If there is no 'HOT' span
+					title = titleList[i].firstChild.rawText.split(' '); // If there is no 'HOT' icon
 				}
 
+				// This loop removes 'online for free' that's at the end of all titles
 				let titleString = '';
-				for (let j = 0; j < title.length - 1; j++) { // dont remember what this loop is used for?
+				for (let j = 0; j < title.length - 1; j++) {
 					titleString += title[j];
 					// tslint:disable-next-line: no-magic-numbers
 					if (j < title.length - 2) {
@@ -76,8 +77,10 @@ const getLatest = async (page: number = 1) => {
 				}
 				/* get title */
 
+				const url = source.root + urlList[i].attributes.href;
+
 				list.push(createPreview(
-					titleString.toString().trim(), imgList[i].attributes.src, urlList[i].attributes.href, Sources.mangasee));
+					titleString.toString().trim(), imgList[i].attributes.src, url, Sources.mangasee));
 			}
 			else
 			{

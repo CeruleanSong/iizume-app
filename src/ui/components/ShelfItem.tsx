@@ -12,7 +12,7 @@ import { Image, ImageBackground, StyleSheet, Text, TouchableNativeFeedback, View
 
 interface ItemProps {
 	title?: string;
-	uri: string;
+	img: string;
 	onSelect: () => void;
 }
 
@@ -30,7 +30,7 @@ const ShelfItem: React.FC<ItemProps> = (props: ItemProps) => {
 					<View style={styles.imageWrapper}>
 						<Image
 							style={styles.image}
-							source={{uri: props.uri}} />
+							source={{uri: props.img}} />
 					</View>
 					<View style={styles.itemTitle}>
 						<Text numberOfLines={1} style={styles.itemText}> {props.title} </Text>

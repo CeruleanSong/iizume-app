@@ -47,7 +47,7 @@ const Shelf: React.FC<ShelfProps> = (props: ShelfProps)  => {
 			removeClippedSubviews={true}
 			contentContainerStyle={styles.container}
 			 // source={item.source} id={item.id}
-			renderItem={({ item, index }) => <ShelfItem key={index} title={item.title} uri={item.uri} onSelect={() => props.onSelect(item)} /> }
+			renderItem={({ item, index }) => <ShelfItem key={index} title={item.title} img={item.img} onSelect={() => props.onSelect(item)} /> }
 			keyExtractor={(item, index) => index.toString() /* item.id ?? item.title */}
 			ListFooterComponent={renderFooter()}
 			// refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
