@@ -13,6 +13,8 @@ interface Preview {
 	/** title of manga */
 	title: string;
 	/** uri of image preview */
+	img: string;
+	/** page where the reader exists */
 	uri: string;
 	/** source preview was grabbed from */
 	source: SourceType;
@@ -24,9 +26,10 @@ interface Preview {
  * @param {string} title Page number of chapter
  * @param {string} uri Uri of image
  */
-const createPreview = (title: string, uri: string, source: SourceType, id?: string) => {
+const createPreview = (title: string, img: string, uri: string, source: SourceType, id?: string) => {
 	const preview: Preview = {
 		title,
+		img,
 		uri,
 		source,
 		id: id ? id : null,
