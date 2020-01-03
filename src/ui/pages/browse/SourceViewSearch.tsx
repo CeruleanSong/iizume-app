@@ -10,8 +10,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
-
-import { getLatest } from '../../../core/source/Source';
+import { get, getLatest } from '../../../core/source/Source';
 import { Sources, SourceType } from '../../../core/source/SourceList';
 import { Preview } from '../../../lib/manga/Preview';
 import Shelf from '../../components/Shelf';
@@ -50,9 +49,13 @@ class BrowseTabView extends Component<{}, BrowseState> {
 			}
 		};
 
+		const getManga = async (source: SourceType, uri: string) => {
+			await get(Sources.mangasee, uri);
+		};
+
 		return (
 			<View>
-				<Shelf list={this.state.list} onReachEnd={onScrollHandler} onSelect={(item) => console.warn("Pressed", item.id ?? item.title)}/>
+				<Shelf list={this.state.list} onReachEnd={onScrollHandler} onSelect={(item) => getManga(Sources.mangasee, item.uri)}/>
 			</View>
 		);
 	}

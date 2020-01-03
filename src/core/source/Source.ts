@@ -13,13 +13,12 @@ import { Sources, SourceType } from "./SourceList";
 import MangaSee from "./sources/MangaSee";
 
 const get = (source: SourceType, uri: string) => {
-	// switch (uri) {
-	// 	case Sources.mangasee.name:
-	// 		break;
-	// 	case Sources.mangasee.name:
-	// 		break;
-	// 	case Sources.mangasee.name:
-	// }
+	switch (source) {
+		case Sources.mangasee:
+			return MangaSee.get(uri);
+		default:
+			return null;
+	}
 };
 
 const getLatest = async (source: SourceType, page?: number) => {
@@ -35,5 +34,6 @@ const getLatest = async (source: SourceType, page?: number) => {
 };
 
 export {
+	get,
 	getLatest,
 };
