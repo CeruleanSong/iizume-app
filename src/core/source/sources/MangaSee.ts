@@ -7,6 +7,7 @@
  */
 
 import axios from 'axios';
+import fetch from 'node-fetch';
 import { parse } from 'node-html-parser';
 import qs from 'qs';
 import { createPreview, Preview } from '../../../lib/manga/Preview';
@@ -33,59 +34,50 @@ const getLatest = async (page: number = 1) => {
 
 	const req = { page };
 
-	let message: any = null;
-	let status: any = null;
-
 	const list: Preview[] = [];
 
-	await axios.post(source.root + '/home/latest.request.php', qs.stringify(req), {
+	await fetch(source.root + '/home/latest.request.php', {
 		method: 'post',
+		body: qs.stringify(req),
 		headers: {
 			'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
 		},
-	}).then((res) => {
-		status = res.status;
-		message = res.data;
+	}).then(async (res) => {
+		const data = await res.text();
+		const root: any = parse(data);
 
-		const root: any = parse(message);
-		const root2 = '<ul id="list"><li>Hello World</li></ul>';
-		const parsed = parse(root2);
-		// console.log(json);
-
-		const images = root.querySelectorAll('.latestImage img');
-		const titles = root.querySelectorAll('.latestBox p.clamp2');
-		const genres = root.querySelectorAll('.latestBox div.genreLastest');
-
-		// console.log(images);
-		const imageList = {...images};
-		const genreList = {...genres};
-		const titleList = {...titles};
+		const imgList = root.querySelectorAll('.latestImage img');
+		const urlList = root.querySelectorAll('a.latestSeries');
+		const titleList = root.querySelectorAll('.latestBox p.clamp2');
+		const genreList = root.querySelectorAll('.latestBox div.genreLastest');
 
 		for (let i = 0;; i++) {
-			if (images.hasOwnProperty(i) && genres.hasOwnProperty(i) && titles.hasOwnProperty(i)) {
-				const titleTag = [...titles[i].childNodes];
-				// console.log(titles[i].childNodes);
+			if (imgList.hasOwnProperty(i) && titleList.hasOwnProperty(i)
+			 && genreList.hasOwnProperty(i)) {
+
+				/* get title */
+				const titleTag = [...titleList[i].childNodes];
 				let title: any = null;
 
 				if (titleTag.hasOwnProperty(2)) {
-					title = titleTag[1].rawText.split(' ');
+					title = titleTag[i].rawText.split(' '); // if 'HOT' span is present
 				}
 				else {
-					title = titles[1].firstChild.rawText.split(' ');
+					title = titleList[i].firstChild.rawText.split(' '); // If there is no 'HOT' span
 				}
 
 				let titleString = '';
-
-				for (let j = 0; j < title.length - 1; j++) {
+				for (let j = 0; j < title.length - 1; j++) { // dont remember what this loop is used for?
 					titleString += title[j];
 					// tslint:disable-next-line: no-magic-numbers
-					if (j < title.length - 2)
-					{
+					if (j < title.length - 2) {
 						titleString += ' ';
 					}
 				}
+				/* get title */
 
-				list.push(createPreview(titleString.toString().trim(), images[i].attributes.src, Sources.mangasee));
+				list.push(createPreview(
+					titleString.toString().trim(), imgList[i].attributes.src, urlList[i].attributes.href, Sources.mangasee));
 			}
 			else
 			{
@@ -93,12 +85,8 @@ const getLatest = async (page: number = 1) => {
 			}
 		}
 
-	}).catch((e: XMLHttpRequest) => {
-		const res = e.response;
-
-		message = res.data;
-		status = res.status;
 	});
+
 	return list;
 };
 
