@@ -21,7 +21,7 @@ interface BrowseSourceProps {
 const initialLayout = { width: Dimensions.get('window').width };
 
 const BrowseSource: React.FC<BrowseSourceProps> = (props: BrowseSourceProps) => {
-	const [index, setIndex] = React.useState(0);
+	const [index, setIndex] = React.useState(1); // start in middle?
 	const [routes] = React.useState([
 		{ key: 'search', title: 'Search' },
 		{ key: 'latest', title: 'Latest' },
@@ -33,8 +33,8 @@ const BrowseSource: React.FC<BrowseSourceProps> = (props: BrowseSourceProps) => 
 	);
 
 	const renderScene = SceneMap({
-		search: Search,
 		latest: Search,
+		search: Search,
 		hot: Search,
 	});
 
