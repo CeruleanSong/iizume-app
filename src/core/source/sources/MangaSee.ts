@@ -10,24 +10,100 @@ import axios from 'axios';
 import fetch from 'node-fetch';
 import { parse } from 'node-html-parser';
 import qs from 'qs';
+import { Chapter, Manga } from '../../../lib/manga';
+import { createChapter } from '../../../lib/manga/Chapter';
+import { createManga } from '../../../lib/manga/Manga';
 import { createPreview, Preview } from '../../../lib/manga/Preview';
 import { Sources } from '../SourceList';
 
 const ID = 2;
 const source = Sources.mangasee;
 
-const get = async (uri: string) => {
-	// await axios.post(config.server.url+'/auth', req, {
-	// 	withCredentials: true,
-	// }).then((res) => {
-	// 	status = res.status;
-	// 	route(status);
-	// }).catch((e: XMLHttpRequest) => {
-	// 	const res = e.response;
+const get = async (preview: Preview) => {
 
-	// 	message = res.data;
-	// 	status = res.status;
-	// });
+	let manga: Manga.Manga | null = null;
+
+	await fetch(preview.uri, {
+		method: 'post',
+	}).then(async (res) => {
+		const data = await res.text();
+		const root: any = parse(data);
+
+		const mangaLink = root.querySelectorAll('.list-link')[0];
+
+		await fetch(source.root + mangaLink.attributes.href, {
+			method: 'post',
+		}).then(async (mangaPage) => {
+			const mangaData = await mangaPage.text();
+			const html: any = parse(mangaData);
+
+			const info = html.querySelectorAll('.details div.row div');
+			const authorList = [];
+			const genreList = [];
+			let type = '';
+			let status = '';
+			let description = '';
+
+			if (info.length === 7) { // if 'alternate names' exists everytinh is +1
+				const authors = info[1].querySelectorAll('a');
+				for (const tag of authors) {
+					authorList.push(tag.innerHTML);
+				}
+
+				const genres = info[2].querySelectorAll('a');
+				for (const tag of genres) {
+					genreList.push(tag.innerHTML);
+				}
+
+				type = info[3].querySelectorAll('a')[0].innerHTML;
+
+				const s: string = info[5].querySelectorAll('a')[0].innerHTML;
+				status = s.split(' ')[0];
+
+				description = info[6].querySelectorAll('.description')[0].innerHTML;
+
+			} else {
+
+				const authors = info[0].querySelectorAll('a');
+				for (const tag of authors) {
+					authorList.push(tag.innerHTML);
+				}
+
+				const genres = info[1].querySelectorAll('a');
+				for (const tag of genres) {
+					genreList.push(tag.innerHTML);
+				}
+
+				type = info[2].querySelectorAll('a')[0].innerHTML;
+
+				const s: string = info[4].querySelectorAll('a')[0].innerHTML;
+				status = s.split(' ')[0];
+
+				description = info[5].querySelectorAll('.description')[0].innerHTML;
+			}
+
+			const chapterList = html.querySelectorAll('a.list-group-item');
+
+			const chapterObjectList: Chapter.Chapter[] = [];
+			for (const tag of chapterList) {
+				// tslint:disable-next-line: no-string-literal
+				chapterObjectList.push(createChapter(tag.attributes['Chapter'], tag.attributes.href));
+			}
+
+			// let manga = createManga()
+			// console.log('manga: ' + mangaLink.attributes.href
+			// + '\nchapters: ' + chapterList.length
+			// + '\ngenre(s): ' + genreList
+			// + '\nauthor(s): ' + authorList
+			// + '\ntype: ' + type
+			// + '\nstatus: ' + status);
+
+			manga = createManga(preview.title, preview.uri, preview.img, chapterObjectList,
+				authorList.toString(), authorList.toString(), status, 0, description, genreList);
+		});
+	});
+
+	return manga;
 };
 
 const getLatest = async (page: number = 1) => {

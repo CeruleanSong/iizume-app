@@ -15,7 +15,7 @@ interface Chapter {
 	num: number;
 	url: string;
 
-	pages: Page.Page[];
+	pages: string[] | null;
 
 	title: string | null;
 	scanlator: string | null;
@@ -29,13 +29,13 @@ interface Chapter {
  * @param {number} upload_date Date of upload for chapter
  * @param {string} scanlator Group that scanlated chapter
  *
- * @param {Page[]} pages Array of pages in chapter
+ * @param {string[]} pages Array of pages in chapter
  */
-const createChapter = (num: number, uri: string, pages: Page.Page[], title?: string, scanlator?: string, uploadDate?: Date) => {
+const createChapter = (num: number, uri: string, pages?: string[], title?: string, scanlator?: string, uploadDate?: Date) => {
 	const chapter: Chapter = {
 		num,
 		url: uri,
-		pages,
+		pages: pages ? pages : null,
 		title: title ? title : null,
 		scanlator: scanlator ? scanlator : null,
 		uploadDate: uploadDate ? uploadDate : null,
@@ -44,9 +44,9 @@ const createChapter = (num: number, uri: string, pages: Page.Page[], title?: str
 	return chapter;
 };
 
-const addPage = (chapter: Chapter, page: Page.Page) => {
-	const p: Page.Page[] = [
-		...chapter.pages,
+const addPage = (chapter: Chapter, page: string) => {
+	const p: string[] = [
+		// ...chapter.pages,
 		page,
 	];
 

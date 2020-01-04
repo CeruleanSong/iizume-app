@@ -49,13 +49,13 @@ class BrowseTabView extends Component<{}, BrowseState> {
 			}
 		};
 
-		const getManga = async (source: SourceType, uri: string) => {
-			await get(Sources.mangasee, uri);
+		const getManga = async (source: SourceType, item: Preview) => {
+			await get(Sources.mangasee, item);
 		};
 
 		return (
 			<View>
-				<Shelf list={this.state.list} onReachEnd={onScrollHandler} onSelect={(item) => getManga(Sources.mangasee, item.uri)}/>
+				<Shelf list={this.state.list} onReachEnd={onScrollHandler} onSelect={(item) => getManga(Sources.mangasee, item)}/>
 			</View>
 		);
 	}

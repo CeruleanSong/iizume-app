@@ -9,13 +9,14 @@
  * @author Elias Mawa <elias@emawa.io>
  */
 
+import { Preview } from "../../lib/manga/Preview";
 import { Sources, SourceType } from "./SourceList";
 import MangaSee from "./sources/MangaSee";
 
-const get = (source: SourceType, uri: string) => {
+const get = (source: SourceType, preview: Preview) => {
 	switch (source) {
 		case Sources.mangasee:
-			return MangaSee.get(uri);
+			return MangaSee.get(preview);
 		default:
 			return null;
 	}

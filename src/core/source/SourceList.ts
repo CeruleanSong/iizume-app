@@ -44,16 +44,16 @@ const SFWSources = {
 };
 
 const NSFWSources: any = {
-	// nhentai: {
-	// 	name: 'nhentai',
-	// 	root: 'https://nhentai.net',
-	// 	nsfw: true,
-	// },
-	// ehentai: {
-	// 	name: 'e-hentai',
-	// 	root: 'https://e-hentai.org/',
-	// 	nsfw: true,
-	// },
+	nhentai: {
+		name: 'nhentai',
+		root: 'https://nhentai.net',
+		nsfw: true,
+	},
+	ehentai: {
+		name: 'e-hentai',
+		root: 'https://e-hentai.org/',
+		nsfw: true,
+	},
 };
 
 // const Sources: any = [...SFWSources];
@@ -61,28 +61,6 @@ const NSFWSources: any = {
 // Sources.concat(NSources);s
 
 const Sources: any = Object.assign({}, SFWSources, NSFWSources);
-// = {
-// 	...SFWSources,
-// 	...NSFWSources,
-// };
-
-// console.log(...Sources);
-// console.log(Sources.mangasee);
-
-// console.log(Sources[]);
-
-// Sources[Symbol.iterator] = function*() {
-// 	let k;
-// 	for (k in this) {
-// 		if (k) {
-// 			// yield [k, this[k]];
-// 			yield [this[k]];
-// 		}
-// 		// else {
-// 		// 	yield ['', this[k]];
-// 		// }
-// 	}
-// };
 
 export {
 	SourceType,

@@ -17,7 +17,7 @@ interface Manga {
 
 	artist: string | null;
 	author: string | null;
-	publicationStatus: number | null;
+	publicationStatus: string | null;
 	rating: number | null;
 	description: string | null;
 
@@ -34,10 +34,10 @@ interface Manga {
  * @param {number?} publicationStatus Satus of publication
  * @param {number?} rating Rating of the manga
  * @param {tags?} tags Array of applicable tags
- * @param {Chapter[]?} chapters Array of all chapters in series
+ * @param {Chapter.Chapter[]?} chapters Link to the page of chapter
  */
 const createManga = (title: string, uri: string, thumbnailUrl: string, chapters: Chapter.Chapter[], artist?: string, author?: string,
-		publicationStatus?: number, rating?: number, description?: string,
+		publicationStatus?: string, rating?: number, description?: string,
 		tags?: string[]) => {
 	const manga: Manga = {
 		title,
