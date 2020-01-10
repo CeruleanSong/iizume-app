@@ -21,7 +21,7 @@ const source = Sources.mangasee;
 
 const getManga = async (preview: Preview) => {
 
-	let manga: Manga | null = null;
+	let manga: any = null;
 
 	const req = { source: 'mangasee', url: preview.url };
 
@@ -35,7 +35,6 @@ const getManga = async (preview: Preview) => {
 		const data = await res.text();
 
 		manga = JSON.parse(data);
-		console.log(manga);
 	});
 
 	return manga;

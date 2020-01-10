@@ -15,7 +15,7 @@ import ShelfItem from "../components/ShelfItem";
 import StyledStaticFlatListItem from "./StyledStaticFlatListItem";
 
 interface StyledStaticFlatListProps {
-	list: SourceType[];
+	list: any[];
 	onSelect: (selected: SourceType) => void;
 	style?: ViewStyle;
 	textStyle?: TextStyle;
