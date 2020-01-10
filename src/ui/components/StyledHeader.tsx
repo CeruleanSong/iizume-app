@@ -13,9 +13,6 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import { withNavigation } from "react-navigation";
 import { NavigationStackProp } from "react-navigation-stack";
 
-/**
- * 
- */
 interface HeaderProps {
 	style?: ViewStyle;
 	textStyle?: TextStyle;
