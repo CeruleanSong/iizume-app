@@ -2,7 +2,6 @@
  * AppConfig.ts
  * - Stores top level routes in program
  * Notes:
- * - Ignore headermode error by linter
  * Created 19-12-28
  * @author Elias Mawa <elias@emawa.io>
  */
@@ -17,6 +16,7 @@ import Settings from "./pages/Settings";
 import Updates from './pages/Updates';
 import Browse from './pages/browse/Browse';
 import BrowseSource from './pages/browse/BrowseSource';
+import MangaView from './pages/reader/MangaView';
 
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { createStackNavigator } from "react-navigation-stack";
@@ -25,6 +25,7 @@ import { createBottomTabNavigator } from "react-navigation-tabs";
 const BrowseRoutes = createStackNavigator({
 	Browse,
 	BrowseSource,
+	MangaView,
 }, {
 	initialRouteName: "Browse",
 	headerMode: "none", // ignore linter
@@ -72,7 +73,7 @@ const AppRoutes = {
 const AppConfig: any =  {
 	initialRouteName: "Library",
 	backBehavior: 'initialRoute',
-	headerMode: "none", // ignore linter
+	headerMode: "none",
 	defaultNavigationOptions: ({ navigation }: any) => ({
 		tabBarIcon: ({ focused, horizontal, tintColor }: any) => {
 			const { routeName } = navigation.state;

@@ -10,7 +10,8 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
-import { get, getLatest } from '../../../core/source/Source';
+import { NavigationStackProp } from 'react-navigation-stack';
+import { getLatest, getManga } from '../../../core/source/Source';
 import { Sources, SourceType } from '../../../core/source/SourceList';
 import { Preview } from '../../../lib/manga/Preview';
 import Shelf from '../../components/Shelf';
@@ -21,7 +22,11 @@ interface BrowseState {
 	refreshing: boolean;
 }
 
-class BrowseTabView extends Component<{}, BrowseState> {
+interface BrowseProps {
+	navigation: NavigationStackProp;
+}
+
+class BrowseTabView extends Component<BrowseProps, BrowseState> {
 	constructor(props: any){
 		super(props);
 		this.state = {
@@ -49,13 +54,14 @@ class BrowseTabView extends Component<{}, BrowseState> {
 			}
 		};
 
-		const getManga = async (source: SourceType, item: Preview) => {
-			await get(Sources.mangasee, item);
+		const selectedManga = async (source: SourceType, item: Preview) => {
+			const manga = await getManga(Sources.mangasee, item);
+			this.props.navigation.navigate('MangaView', { manga });
 		};
 
 		return (
 			<View>
-				<Shelf list={this.state.list} onReachEnd={onScrollHandler} onSelect={(item) => getManga(Sources.mangasee, item)}/>
+				<Shelf list={this.state.list} onReachEnd={onScrollHandler} onSelect={(item) => selectedManga(Sources.mangasee, item)}/>
 			</View>
 		);
 	}

@@ -29,7 +29,7 @@ const BrowseSource: React.FC<BrowseSourceProps> = (props: BrowseSourceProps) => 
 	]);
 
 	const Search = () => (
-		<BrowseTabView />
+		<BrowseTabView navigation={props.navigation} />
 	);
 
 	const renderScene = SceneMap({
