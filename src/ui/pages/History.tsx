@@ -25,6 +25,7 @@ const History: React.FC<HistoryProps> = (props: HistoryProps) => {
 				<View style={{width: "50%"}}>
 				</View>
 			</StyledHeader>
+			<Text>History Tab!</Text>
 		</View>
 	);
 };

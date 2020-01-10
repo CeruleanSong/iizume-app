@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 import { NavigationStackProp } from 'react-navigation-stack';
 import StyledHeader from '../components/StyledHeader';
 
@@ -36,6 +36,7 @@ class Library extends React.Component<LibraryProps> {
 					<View style={{width: "50%"}}>
 					</View>
 				</StyledHeader>
+				<Text>Library Tab!</Text>
 			</View>
 		);
 	}

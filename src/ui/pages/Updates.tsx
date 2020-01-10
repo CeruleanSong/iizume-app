@@ -8,8 +8,7 @@
  */
 
 import React from 'react';
-import { View } from 'react-native';
-
+import { Text, View } from 'react-native';
 import { NavigationStackProp } from 'react-navigation-stack';
 import StyledHeader from '../components/StyledHeader';
 import ActionButtonNavigator from '../shared/ActionButtonNavigator';
@@ -26,6 +25,7 @@ const Updates: React.FC<UpdatesProps> = (props: UpdatesProps) => {
 				<View style={{width: "50%"}}>
 				</View>
 			</StyledHeader>
+			<Text>Updates Tab!</Text>
 		</View>
 	);
 };
