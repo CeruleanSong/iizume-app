@@ -7,17 +7,15 @@
  * @author Elias Mawa <elias@emawa.io>
  */
 
-import { Sources, SourceType } from '../../core/source/SourceList';
-
-interface Preview {
+ interface Preview {
 	/** title of manga */
 	title: string;
 	/** uri of image preview */
 	img: string;
 	/** page where the reader exists */
-	uri: string;
+	url: string;
 	/** source preview was grabbed from */
-	source: SourceType;
+	source: string;
 	/** id from source if provided */
 	id?: string | null;
 }
@@ -26,11 +24,11 @@ interface Preview {
  * @param {string} title Page number of chapter
  * @param {string} uri Uri of image
  */
-const createPreview = (title: string, img: string, uri: string, source: SourceType, id?: string) => {
+const createPreview = (title: string, img: string, url: string, source: string, id?: string) => {
 	const preview: Preview = {
 		title,
 		img,
-		uri,
+		url,
 		source,
 		id: id ? id : null,
 	};

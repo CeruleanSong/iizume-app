@@ -13,10 +13,10 @@ import { Preview } from "../../lib/manga/Preview";
 import { Sources, SourceType } from "./SourceList";
 import MangaSee from "./sources/MangaSee";
 
-const get = (source: SourceType, preview: Preview) => {
+const getManga = (source: SourceType, preview: Preview) => {
 	switch (source) {
 		case Sources.mangasee:
-			return MangaSee.get(preview);
+			return MangaSee.getManga(preview);
 		default:
 			return null;
 	}
@@ -35,6 +35,6 @@ const getLatest = async (source: SourceType, page?: number) => {
 };
 
 export {
-	get,
+	getManga,
 	getLatest,
 };

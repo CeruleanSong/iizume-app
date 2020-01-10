@@ -7,12 +7,10 @@
  * @author Elias Mawa <elias@emawa.io>
  */
 
-import * as Chapter from "./Chapter";
-import * as Manga from "./Manga";
-import * as Page from "./Page";
+ import * as Chapter from "./Chapter";
+ import * as Manga from "./Manga";
 
-export {
-	Page,
-	Chapter,
-	Manga,
-};
+ export {
+	 Chapter,
+	 Manga,
+ };
