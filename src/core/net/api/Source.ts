@@ -31,9 +31,25 @@ const getLatest = async (source: string, page: number) => {
 	const req = { source, page };
 	let data: [] = [];
 
-	console.log(req);
-
 	await fetch('https://' + api + '/manga/latest', {
+		method: 'post',
+		body: JSON.stringify(req),
+		headers: {
+			"Content-Type": "application/json",
+		},
+	}).then(async (res) => {
+		const responce = await res.text();
+		data = JSON.parse(responce);
+	});
+
+	return data;
+};
+
+const getSeries = async (source: string) => {
+	const req = { source };
+	let data: [] = [];
+
+	await fetch('https://' + api + '/manga/series', {
 		method: 'post',
 		body: JSON.stringify(req),
 		headers: {
@@ -50,4 +66,5 @@ const getLatest = async (source: string, page: number) => {
 export {
 	getSources,
 	getLatest,
+	getSeries,
 };

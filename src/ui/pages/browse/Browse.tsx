@@ -44,8 +44,8 @@ class Browse extends React.Component<BrowseProps, BrowseState> {
 
 	public render(){
 
-		const pushBrowser = () => {
-			// this.props.navigation.navigate('BrowseSource', {source: selected});
+		const pushBrowser = (selected: any) => {
+			this.props.navigation.navigate('BrowseSource', { source: selected });
 		};
 
 		return (
@@ -53,7 +53,7 @@ class Browse extends React.Component<BrowseProps, BrowseState> {
 				{ /*************** Main Component ***************/ }
 				<StyledHeader text="Browse" showBackButton={false}/>
 				<View style={styles.body}>
-					<StyledFlatList list={this.state.list} onSelect={() => null} />
+					<StyledFlatList list={this.state.list} onSelect={pushBrowser} />
 				</View>
 			</View>
 		);

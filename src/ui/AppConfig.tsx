@@ -19,16 +19,20 @@ import Library from "./pages/Library";
 import Settings from "./pages/Settings";
 import Updates from "./pages/Updates";
 import Browse from "./pages/browse/Browse";
+import BrowseSource from "./pages/browse/BrowseSource";
+import MangaView from "./pages/reader/MangaView";
 
 /******* SUB ROUTES *******/
-const BrowseSubRoute = createStackNavigator({
+const BrowseRoute = createStackNavigator({
 	Browse,
+	BrowseSource,
+	MangaView,
 }, {
 	initialRouteName: "Browse",
 	headerMode: "none",
 });
 
-const LibrarySubRoute = createStackNavigator({
+const LibraryRoute = createStackNavigator({
 	Library,
 }, {
 	initialRouteName: "Library",
@@ -71,7 +75,7 @@ const AppRoutes = {
 		},
 	},
 	Browse: {
-		screen: Browse,
+		screen: BrowseRoute,
 		name: 'Browse',
 		navigationOptions: {
 			tabBarIcon:  ({ tintColor }: any) => (
@@ -96,7 +100,7 @@ const AppRoutes = {
 
 /* configure tab bar style | behavior | etc */
 const AppConfig: any =  {
-	initialRouteName: "Library",
+	initialRouteName: "Browse",
 	backBehavior: 'initialRoute',
 	headerMode: "none",
 	activeColor: '#ff6b87', // pink
