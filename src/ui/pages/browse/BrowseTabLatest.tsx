@@ -34,18 +34,17 @@ class BrowseTabLatest extends Component<BrowseProps, BrowseState> {
 	}
 
 	public async componentDidMount() {
-		await getLatest('mangaseeonline.us', this.state.page).then((res: any) => {
+		await getLatest(this.props.source.root, this.state.page).then((res: any) => {
 			this.setState({list: res ?? []});
 		});
 	}
 
 	public render() {
-		console.log(this.props.source);
 
 		const onScrollHandler = async () => {
 			if (!this.state.refreshing) {
 				this.setState({page: this.state.page, list: this.state.list, refreshing: true});
-				const res = await getLatest('mangaseeonline.us', this.state.page + 1);
+				const res = await getLatest(this.props.source.root, this.state.page + 1);
 
 				const list = this.state.list?.concat(res ? res : []);
 
