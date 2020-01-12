@@ -14,11 +14,11 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import { createStackNavigator } from "react-navigation-stack";
-import Browse from "./pages/Browse";
 import History from "./pages/History";
 import Library from "./pages/Library";
 import Settings from "./pages/Settings";
 import Updates from "./pages/Updates";
+import Browse from "./pages/browse/Browse";
 
 /******* SUB ROUTES *******/
 const BrowseSubRoute = createStackNavigator({
