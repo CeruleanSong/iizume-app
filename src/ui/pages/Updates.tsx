@@ -31,10 +31,7 @@ class Updates extends React.Component<UpdatesProps> {
 		return (
 			<View style={styles.container}>
 				{ /*************** Main Component ***************/ }
-				<StyledHeader text="Updates" showBackButton={false}>
-					<View style={{width: "50%"}}>
-					</View>
-				</StyledHeader>
+				<StyledHeader text="Updates" showBackButton={false}/>
 				<View style={styles.body}>
 					<Text>Updates Tab!</Text>
 				</View>
@@ -48,7 +45,6 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: 'flex-start',
-		backgroundColor: '#f9f9f9',
 		alignItems: 'center',
 	},
 	body: {

@@ -31,10 +31,7 @@ class History extends React.Component<HistoryProps> {
 		return (
 			<View style={styles.container}>
 				{ /*************** Main Component ***************/ }
-				<StyledHeader text="History" showBackButton={false}>
-					<View style={{width: "50%"}}>
-					</View>
-				</StyledHeader>
+				<StyledHeader text="History" showBackButton={false}/>
 				<View style={styles.body}>
 					<Text>History Tab!</Text>
 				</View>
@@ -48,7 +45,6 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: 'flex-start',
-		backgroundColor: '#f9f9f9',
 		alignItems: 'center',
 	},
 	body: {

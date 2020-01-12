@@ -31,10 +31,7 @@ class Settings extends React.Component<SettingsProps> {
 		return (
 			<View style={styles.container}>
 				{ /*************** Main Component ***************/ }
-				<StyledHeader text="Settings" showBackButton={false}>
-					<View style={{width: "100%"}}>
-					</View>
-				</StyledHeader>
+				<StyledHeader text="Settings" showBackButton={false}/>
 				<View style={styles.body}>
 					<Text>Settings Tab!</Text>
 				</View>
@@ -48,7 +45,6 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: 'flex-start',
-		backgroundColor: '#f9f9f9',
 		alignItems: 'center',
 	},
 	body: {

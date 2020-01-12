@@ -31,10 +31,7 @@ class Library extends React.Component<LibraryProps> {
 		return (
 			<View style={styles.container}>
 				{ /*************** Main Component ***************/ }
-				<StyledHeader text="Library" showBackButton={false}>
-					<View style={{width: "100%"}}>
-					</View>
-				</StyledHeader>
+				<StyledHeader text="Library" showBackButton={false}/>
 				<View style={styles.body}>
 					<Text>Library Tab!</Text>
 				</View>
@@ -48,7 +45,6 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: 'flex-start',
-		backgroundColor: '#f9f9f9',
 		alignItems: 'center',
 	},
 	body: {
