@@ -10,6 +10,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationStackProp } from 'react-navigation-stack';
+import StyledHeader from '../components/StyledHeader';
 
 /* props */
 interface UpdatesProps {
@@ -30,11 +31,13 @@ class Updates extends React.Component<UpdatesProps> {
 		return (
 			<View style={styles.container}>
 				{ /*************** Main Component ***************/ }
-				{/* <StyledHeader text="Library" showBackButton={false}>
+				<StyledHeader text="Updates" showBackButton={false}>
 					<View style={{width: "50%"}}>
 					</View>
-				</StyledHeader> */}
-				<Text>Updates Tab!</Text>
+				</StyledHeader>
+				<View style={styles.body}>
+					<Text>Updates Tab!</Text>
+				</View>
 			</View>
 		);
 	}
@@ -44,9 +47,14 @@ class Updates extends React.Component<UpdatesProps> {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		justifyContent: 'flex-start',
+		backgroundColor: '#f9f9f9',
+		alignItems: 'center',
+	},
+	body: {
+		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
 });
-
 export default Updates;

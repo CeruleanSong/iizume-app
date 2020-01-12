@@ -10,6 +10,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationStackProp } from 'react-navigation-stack';
+import StyledHeader from '../components/StyledHeader';
 
 /* props */
 interface BrowseProps {
@@ -30,11 +31,13 @@ class Browse extends React.Component<BrowseProps> {
 		return (
 			<View style={styles.container}>
 				{ /*************** Main Component ***************/ }
-				{/* <StyledHeader text="Library" showBackButton={false}>
+				<StyledHeader text="Browse" showBackButton={false}>
 					<View style={{width: "50%"}}>
 					</View>
-				</StyledHeader> */}
-				<Text>Browse Tab!</Text>
+				</StyledHeader>
+				<View style={styles.body}>
+					<Text>Browse Tab!</Text>
+				</View>
 			</View>
 		);
 	}
@@ -44,9 +47,14 @@ class Browse extends React.Component<BrowseProps> {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		justifyContent: 'flex-start',
+		backgroundColor: '#f9f9f9',
+		alignItems: 'center',
+	},
+	body: {
+		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
 });
-
 export default Browse;

@@ -9,15 +9,33 @@
 import React from "react";
 
 import { View } from "react-native";
+import Feather from 'react-native-vector-icons/Feather';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
+import { createStackNavigator } from "react-navigation-stack";
 import Browse from "./pages/Browse";
 import History from "./pages/History";
 import Library from "./pages/Library";
 import Settings from "./pages/Settings";
 import Updates from "./pages/Updates";
 
-/* configure tab bar routes */
+/******* SUB ROUTES *******/
+const BrowseSubRoute = createStackNavigator({
+	Browse,
+}, {
+	initialRouteName: "Browse",
+	headerMode: "none",
+});
+
+const LibrarySubRoute = createStackNavigator({
+	Library,
+}, {
+	initialRouteName: "Library",
+	headerMode: "none", // ignore linter
+});
+
+/******* TOP LEVEL ROUTES *******/
 const AppRoutes = {
 	Library: {
 		screen: Library,
@@ -25,7 +43,7 @@ const AppRoutes = {
 		navigationOptions: {
 			tabBarIcon:  ({ tintColor }: any) => (
 				<View>
-					<MaterialIcon style={[{color: tintColor}]} size={25} name={'book'}/>
+					<Ionicons style={[{color: tintColor}]} size={25} name={'md-book'}/>
 				</View>
 			),
 		},
@@ -36,7 +54,7 @@ const AppRoutes = {
 		navigationOptions: {
 			tabBarIcon:  ({ tintColor }: any) => (
 				<View>
-					<MaterialIcon style={[{color: tintColor}]} size={25} name={'new-releases'}/>
+					<MaterialIcon style={[{color: tintColor}]} size={25} name={'update'}/>
 				</View>
 			),
 		},
@@ -47,7 +65,7 @@ const AppRoutes = {
 		navigationOptions: {
 			tabBarIcon:  ({ tintColor }: any) => (
 				<View>
-					<MaterialIcon style={[{color: tintColor}]} size={25} name={'history'}/>
+					<MaterialIcon style={[{color: tintColor}]} size={25} name={'hourglass-empty'}/>
 				</View>
 			),
 		},
@@ -58,7 +76,7 @@ const AppRoutes = {
 		navigationOptions: {
 			tabBarIcon:  ({ tintColor }: any) => (
 				<View>
-					<MaterialIcon style={[{color: tintColor}]} size={25} name={'search'}/>
+					<Ionicons style={[{color: tintColor}]} size={25} name={'md-compass'}/>
 				</View>
 			),
 		},
@@ -81,9 +99,9 @@ const AppConfig: any =  {
 	initialRouteName: "Library",
 	backBehavior: 'initialRoute',
 	headerMode: "none",
-	activeColor: '#ff6b87',
-	inactiveColor: '#fff',
-	barStyle: { backgroundColor: '#0038a8' },
+	activeColor: '#ff6b87', // pink
+	inactiveColor: '#6d6d6d', // grey
+	barStyle: { backgroundColor: '#f9f9f9' },
 };
 
 /* create navigator */

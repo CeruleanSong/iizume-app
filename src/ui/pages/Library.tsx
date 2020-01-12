@@ -10,6 +10,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationStackProp } from 'react-navigation-stack';
+import StyledHeader from '../components/StyledHeader';
 
 /* props */
 interface LibraryProps {
@@ -30,11 +31,13 @@ class Library extends React.Component<LibraryProps> {
 		return (
 			<View style={styles.container}>
 				{ /*************** Main Component ***************/ }
-				{/* <StyledHeader text="Library" showBackButton={false}>
-					<View style={{width: "50%"}}>
+				<StyledHeader text="Library" showBackButton={false}>
+					<View style={{width: "100%"}}>
 					</View>
-				</StyledHeader> */}
-				<Text>Library Tab!</Text>
+				</StyledHeader>
+				<View style={styles.body}>
+					<Text>Library Tab!</Text>
+				</View>
 			</View>
 		);
 	}
@@ -43,6 +46,12 @@ class Library extends React.Component<LibraryProps> {
 /* styles */
 const styles = StyleSheet.create({
 	container: {
+		flex: 1,
+		justifyContent: 'flex-start',
+		backgroundColor: '#f9f9f9',
+		alignItems: 'center',
+	},
+	body: {
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',

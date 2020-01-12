@@ -10,6 +10,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationStackProp } from 'react-navigation-stack';
+import StyledHeader from '../components/StyledHeader';
 
 /* props */
 interface SettingsProps {
@@ -30,11 +31,13 @@ class Settings extends React.Component<SettingsProps> {
 		return (
 			<View style={styles.container}>
 				{ /*************** Main Component ***************/ }
-				{/* <StyledHeader text="Library" showBackButton={false}>
-					<View style={{width: "50%"}}>
+				<StyledHeader text="Settings" showBackButton={false}>
+					<View style={{width: "100%"}}>
 					</View>
-				</StyledHeader> */}
-				<Text>Settings Tab!</Text>
+				</StyledHeader>
+				<View style={styles.body}>
+					<Text>Settings Tab!</Text>
+				</View>
 			</View>
 		);
 	}
@@ -43,6 +46,12 @@ class Settings extends React.Component<SettingsProps> {
 /* styles */
 const styles = StyleSheet.create({
 	container: {
+		flex: 1,
+		justifyContent: 'flex-start',
+		backgroundColor: '#f9f9f9',
+		alignItems: 'center',
+	},
+	body: {
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
