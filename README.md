@@ -16,19 +16,11 @@
 
 ## Screenshots
 
-<img src=".repo/ss_1.png" width=100>
-<img src=".repo/ss_2.png" width=100>
+<img src=".repo/ss_1.png" width=100> <img src=".repo/ss_2.png" width=100>
 
-<br/>
+<img src=".repo/ss_3.png" width=100> <img src=".repo/ss_4.png" width=100> <img src=".repo/ss_5.png" width=100>
 
-<img src=".repo/ss_3.png" width=100>
-<img src=".repo/ss_4.png" width=100>
-<img src=".repo/ss_5.png" width=100>
-
-<br/>
-
-<img src=".repo/screenshot_0.png" width=100>
-<img src=".repo/screenshot_1.png" width=100>
+<img src=".repo/screenshot_0.png" width=100> <img src=".repo/screenshot_1.png" width=100>
 
 ## Getting Started
 
