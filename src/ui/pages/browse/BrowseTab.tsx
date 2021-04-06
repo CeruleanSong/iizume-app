@@ -1,31 +1,56 @@
 import { GestureResponderEvent } from 'react-native';
-import { MaterialBottomTabScreenProps } from '@react-navigation/material-bottom-tabs';
 import React from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { Text } from 'react-native-paper';
+import fetch from 'node-fetch';
 
+import Container from '../../components/Container';
 import NativeContainer from '../../components/NativeContainer';
 import NativeFlatList from '../../components/NativeFlatList';
 import NativeHeader from '../../components/NativeHeader';
 
-interface BrowseProps {
-	navigation: MaterialBottomTabScreenProps<any>;
+interface BrowseTabProps {
+	navigation: StackNavigationProp<any>;
 }
 
-const BrowseTab = (_props: BrowseProps) => {
-	const pushBrowser = (_event: GestureResponderEvent, _item: any) => {
-		return null;
-	};
+const BrowseTab = (props: BrowseTabProps) => {
+	const [ sourceList, useSourceList ] = React.useState<string[]>([]);
+	const [ sourceConfig, useSourceConfig ] = React.useState<string[]>([]);
+	
+	React.useEffect(() => {
+		fetch('http://10.0.0.161:3070/api/source').then(async (result) => {
+			if(result.status === 200) {
+				const sources = JSON.parse(await result.text()).sources;
+				const source_list = [];
+				const source_config = [];
+				for(const i in sources) {
+					source_list.push(sources[i].display_title);
+					source_config[sources[i].display_title] = sources[i];
+				}
+				useSourceList(source_list);
+				useSourceConfig(source_config);
+			}
+		});
+	}, []);
 
-	const items = [ 'hello', 'world', 'hello', 'darling' ];
+	const pushBrowser = (_event: GestureResponderEvent, item: any) => {
+		props.navigation.push('BrowseSource', { source: sourceConfig[item.title] });
+	};
 
 	return (
 		<NativeContainer maxHeight>
 			<NativeHeader
-				navigation={_props.navigation}
+				navigation={props.navigation}
 				title='Browse' />
-			<SafeAreaView>
-				<NativeFlatList pressFunc={pushBrowser} items={items} />
-			</SafeAreaView>
+			{
+				sourceList.length > 0 ?
+					<Container>
+						<NativeFlatList pressFunc={pushBrowser} items={sourceList} />
+					</Container> :
+					<Text>
+						Cannot connect to server!
+					</Text>
+			}
 		</NativeContainer>
 	);
 };

@@ -1,13 +1,13 @@
-import { MaterialBottomTabScreenProps } from '@react-navigation/material-bottom-tabs';
 import React from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { Text } from 'react-native-paper';
 
+import Container from '../../components/Container';
 import NativeContainer from '../../components/NativeContainer';
 import NativeHeader from '../../components/NativeHeader';
 
 interface UpdatesProps {
-	navigation: MaterialBottomTabScreenProps<any>;
+	navigation: StackNavigationProp<any>;
 }
 
 const RecentTab = (_props: UpdatesProps) => {
@@ -15,10 +15,10 @@ const RecentTab = (_props: UpdatesProps) => {
 		<NativeContainer maxHeight>
 			<NativeHeader
 				navigation={_props.navigation}
-				title='Updates' />
-			<SafeAreaView>
-				<Text>Updates Tab!</Text>
-			</SafeAreaView>
+				title='Recent' />
+			<Container>
+				<Text>Recent Tab!</Text>
+			</Container>
 		</NativeContainer>
 	);
 };

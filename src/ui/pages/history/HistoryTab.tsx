@@ -1,13 +1,13 @@
-import { MaterialBottomTabScreenProps } from '@react-navigation/material-bottom-tabs';
 import React from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { Text } from 'react-native-paper';
 
+import Container from '../../components/Container';
 import NativeContainer from '../../components/NativeContainer';
 import NativeHeader from '../../components/NativeHeader';
 
 interface HistoryProps {
-	navigation: MaterialBottomTabScreenProps<any>;
+	navigation: StackNavigationProp<any>;
 }
 
 const HistoryTab = (_props: HistoryProps) => {
@@ -16,9 +16,9 @@ const HistoryTab = (_props: HistoryProps) => {
 			<NativeHeader
 				navigation={_props.navigation}
 				title='History' />
-			<SafeAreaView>
+			<Container>
 				<Text>History Tab!</Text>
-			</SafeAreaView>
+			</Container>
 		</NativeContainer>
 	);
 };

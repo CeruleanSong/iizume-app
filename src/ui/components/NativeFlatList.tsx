@@ -10,11 +10,10 @@ interface NativeFlatListProps {
 	items: any[];
 }
 
-const cols = 1;
-
 const NativeFlatList = (_props: NativeFlatListProps) => {
-	 const itemList = [];
- 
+	const columns = 1;
+	const itemList = [];
+	
 	 for (const _index in _props.items) {
 		itemList.push({ 
 			title: _props.items[_index],
@@ -42,7 +41,7 @@ const NativeFlatList = (_props: NativeFlatListProps) => {
 		<List.Section>
 			<FlatList
 				data={itemList}
-				numColumns={cols}
+				numColumns={columns}
 				removeClippedSubviews={true}
 				renderItem={renderItem}
 				keyExtractor={keyExtractor } />

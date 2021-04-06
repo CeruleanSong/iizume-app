@@ -19,7 +19,7 @@ const theme = {
 };
 
 export const App = () => {
-	return (    
+	return (
 		<PaperProvider theme={theme}>
 			<SafeAreaProvider>
 				<NavigationContainer>

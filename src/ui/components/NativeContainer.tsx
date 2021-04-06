@@ -1,8 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-
-import { SafeAreaView } from 'react-native-safe-area-context';
- 
+import { StyleSheet, View } from 'react-native';
 interface NativeContainerProps {
 	children?: JSX.Element[] | JSX.Element;
 	backgroundColor?: string;
@@ -19,7 +16,7 @@ const styles = StyleSheet.create({
 
 const NativeContainer = (_props: NativeContainerProps) => {
 	 return (
-		<SafeAreaView
+		<View
 			style={{
 				...styles.container,
 				minHeight: _props.maxHeight ? '100%' : 'auto',
@@ -28,7 +25,7 @@ const NativeContainer = (_props: NativeContainerProps) => {
 				margin: _props.margin
 			}}>
 			{ _props.children }
-		</SafeAreaView>
+		</View>
 	 );
 };
  

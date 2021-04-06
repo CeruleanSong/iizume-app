@@ -15,7 +15,7 @@ const NativeFlatListItem = (_props: NativeFlatListItemProps) => {
 		<TouchableRipple
 			onPress={(event) => _props.pressFunc(event)}>
 			<List.Item
-				style={{ elevation: 8 }}
+				style={{ elevation: 8, marginVertical: 8 }}
 				title={_props.item?.title} />
 		</TouchableRipple>
 	);

@@ -1,13 +1,13 @@
-import { MaterialBottomTabScreenProps } from '@react-navigation/material-bottom-tabs';
 import React from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { Text } from 'react-native-paper';
 
+import Container from '../../components/Container';
 import NativeContainer from '../../components/NativeContainer';
 import NativeHeader from '../../components/NativeHeader';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 interface LibraryProps {
-	navigation: MaterialBottomTabScreenProps<any>;
+	navigation: StackNavigationProp<any>;
 }
 
 const LibraryTab = (_props: LibraryProps) => {
@@ -16,9 +16,9 @@ const LibraryTab = (_props: LibraryProps) => {
 			<NativeHeader
 				navigation={_props.navigation}
 				title='Library' />
-			<SafeAreaView>
+			<Container>
 				<Text>Library Tab!</Text>
-			</SafeAreaView>
+			</Container>
 		</NativeContainer>
 	);
 };
