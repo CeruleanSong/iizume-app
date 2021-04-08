@@ -1,22 +1,36 @@
 import React from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-interface ContainerProps {
+interface Props {
 	children?: JSX.Element[] | JSX.Element;
-	paddingHorizontal?: number;
+	cover?: boolean;
+	padding?: number;
+	margin?: number;
+	backgroundColor?: string;
 }
 
-const NativeContainer = (_props: ContainerProps) => {
-	 return (
+const Container = (props: Props) => {
+	const styles = StyleSheet.create({
+		container: {
+			backgroundColor: '#f0f0f0',
+			flex: 1,
+			justifyContent: 'flex-start',
+			alignItems: 'center'
+		}
+	});
+
+	return (
 		<View
 			style={{
-				backgroundColor: 'none',
-				paddingHorizontal: _props.paddingHorizontal ? _props.paddingHorizontal : 8
+				...styles.container,
+				minHeight: props.cover ? '100%' : 'auto',
+				backgroundColor: props.backgroundColor ? props.backgroundColor : styles.container.backgroundColor,
+				padding: props.padding,
+				margin: props.margin
 			}}>
-			{ _props.children }
+			{ props.children }
 		</View>
-	 );
+	);
 };
- 
-export default NativeContainer;
- 
+
+export default Container;
