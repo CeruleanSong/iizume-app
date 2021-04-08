@@ -5,7 +5,7 @@ import { StyleSheet, TextStyle } from 'react-native';
 import FlatListItem from './FlatListItem';
 
 interface Props {
-	items: any[];
+	items: { title: string }[];
 	onPress?: (selected: any) => void;
 	textStyle?: TextStyle;
 }

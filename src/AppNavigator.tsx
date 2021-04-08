@@ -5,6 +5,7 @@ import BottomTabNavigator from '@components/bottom-tab-bar/BottomTabNavigator';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Browse from '@pages/browse/Browse';
+import BrowseSource from '@pages/browse/BrowseSource';
 import Library from '@pages/library/Library';
 import Recent from '@pages/recent/Recent';
 
@@ -34,6 +35,7 @@ export const BrowseNavigator = () => {
 		<BrowseStack.Navigator initialRouteName='Browse'
 			screenOptions={{ headerShown: false }}>
 			<BrowseStack.Screen name="Browse" component={Browse} />
+			<BrowseStack.Screen name="BrowseSource" component={BrowseSource} />
 		</BrowseStack.Navigator>
 	);
 };

@@ -26,8 +26,8 @@ const BottomTabNavigator: React.FunctionComponent<Props> = (props: Props) => {
 		<View style={{ flex: 1, position: 'relative' }}>
 			<AppNavigatorConfig.Navigator
 				tabBar={
-					(_props: BottomTabBarProps) => (
-						<BottomTabBar {..._props}>
+					(tabProps: BottomTabBarProps) => (
+						<BottomTabBar {...tabProps}>
 							{props.children}
 						</BottomTabBar>
 					)
