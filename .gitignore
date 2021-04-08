@@ -1,3 +1,7 @@
+config/*
+!config/app.json
+!config/config.example.json
+
 # OSX
 #
 .DS_Store
