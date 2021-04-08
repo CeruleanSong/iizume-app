@@ -4,7 +4,7 @@ import Animated, { EasingNode } from 'react-native-reanimated';
 import React, { useState } from 'react';
 
 interface Props {
-	children: JSX.Element[] | JSX.Element;
+	children: JSX.Element;
 };
 
 const style = StyleSheet.create({

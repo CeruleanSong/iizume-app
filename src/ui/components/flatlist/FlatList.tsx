@@ -23,7 +23,7 @@ const FlatList = (props: Props) => {
 	const itemList = [];
 
 	for (const i in props.items) {
-		itemList.push({ index: i, item: props.items[i] });
+		itemList.push({ key: i, item: props.items[i] });
 	}
 	
 	return (
@@ -33,16 +33,14 @@ const FlatList = (props: Props) => {
 			removeClippedSubviews={true}
 			contentContainerStyle={styles.container}
 			style={styles.container}
-			renderItem={({ item, index }: any) => {
+			renderItem={({ item, key }: any) => {
 				return (
 					<FlatListItem
-						key={index}
-						index={index}
+						key={key}
 						title={item.item.title} 
 						onPress={() => props.onPress ? props.onPress(item) : null} /> 
 				);
 			}}
-			keyExtractor={(item: any) => item.item.index }
 		/>
 	);
 };

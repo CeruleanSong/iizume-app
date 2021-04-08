@@ -6,7 +6,6 @@ import TouchableOpacity from '@components/TouchableOpacity';
 
 interface Props {
 	title: string;
-	index: number;
 	onPress: () => void;
 }
 
