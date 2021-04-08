@@ -30,7 +30,7 @@ const style = StyleSheet.create({
 	},
 	slider: {
 		position: 'absolute',
-		backgroundColor: '#e200e2',
+		backgroundColor: '#9400d3',
 		borderRadius: 40,
 		height: 2,
 		top: 0

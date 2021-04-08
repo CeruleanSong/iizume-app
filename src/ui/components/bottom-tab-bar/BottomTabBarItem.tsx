@@ -51,10 +51,10 @@ const BottomTabBarItem: React.FunctionComponent<Props> = (props: Props) => {
 				}
 			]}>
 			{props.icon ?
-				<Ionicons size={28} color={ props.active ? '#e200e2' : '#3d3d3d'} name={props.icon} /> : null
+				<Ionicons size={28} color={ props.active ? '#9400d3' : '#3d3d3d'} name={props.icon} /> : null
 			}
 			<Animated.View style={[ { transform: [ { scale: textScale } ] } ]}>
-				<Text style={{ color: '#e200e2', fontSize: 12 }}>
+				<Text style={{ color: '#9400d3', fontSize: 12 }}>
 					{props.title}
 				</Text>
 			</Animated.View>
