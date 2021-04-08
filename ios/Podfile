@@ -3,7 +3,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'iizume' do
+target 'Iizume' do
   config = use_native_modules!
 
   use_react_native!(
@@ -12,11 +12,9 @@ target 'iizume' do
     :hermes_enabled => false
   )
 
-  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
-  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
-
-  target 'iizumeTests' do
+  target 'IizumeTests' do
     inherit! :complete
     # Pods for testing
   end

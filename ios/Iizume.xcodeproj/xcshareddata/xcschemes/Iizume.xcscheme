@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "iizume.app"
-               BlueprintName = "iizume"
-               ReferencedContainer = "container:iizume.xcodeproj">
+               BuildableName = "Iizume.app"
+               BlueprintName = "Iizume"
+               ReferencedContainer = "container:Iizume.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "iizumeTests.xctest"
-               BlueprintName = "iizumeTests"
-               ReferencedContainer = "container:iizume.xcodeproj">
+               BuildableName = "IizumeTests.xctest"
+               BlueprintName = "IizumeTests"
+               ReferencedContainer = "container:Iizume.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "iizume.app"
-            BlueprintName = "iizume"
-            ReferencedContainer = "container:iizume.xcodeproj">
+            BuildableName = "Iizume.app"
+            BlueprintName = "Iizume"
+            ReferencedContainer = "container:Iizume.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "iizume.app"
-            BlueprintName = "iizume"
-            ReferencedContainer = "container:iizume.xcodeproj">
+            BuildableName = "Iizume.app"
+            BlueprintName = "Iizume"
+            ReferencedContainer = "container:Iizume.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
