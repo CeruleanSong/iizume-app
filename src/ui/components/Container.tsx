@@ -13,9 +13,9 @@ const Container = (props: Props) => {
 	const styles = StyleSheet.create({
 		container: {
 			backgroundColor: '#f0f0f0',
-			flex: 1,
 			justifyContent: 'flex-start',
-			alignItems: 'center'
+			alignItems: 'center',
+			width: '100%'
 		}
 	});
 
